@@ -1,0 +1,136 @@
+body {
+    margin : 0;
+    padding : 0;
+}
+
+label {vertical-align: middle;}
+
+
+
+.postalCodeText {   /* この辺のmax、minの値については適当に決めただけなので、適宜、変更すること */
+    max-width : 160px;
+    min-width : 70px;
+    width : 22%;
+}
+.priceText {
+    max-width : 200px;
+    min-width : 80px;
+    width : 36%;
+}
+.timeText {
+    max-width : 120px;
+    min-width : 60px;
+    width : 24%;
+}
+.midiumText {
+    max-width : 150px;
+    min-width : 100px;
+    width : 30%;
+}
+
+.remarks {
+    width : 90%;
+    height : 5rem;
+}
+
+.withSelectButton {
+    width : 50%;
+    float : left;
+}
+
+/*  ----- ----- ----- */
+.grid_form {
+    grid-area: form;
+    padding : 2rem 0;
+}
+.grid_form form {
+    display : grid;
+    width : 80%;
+
+    /* フォーム項目の縦幅と、描画位置の設定（左上） */
+    grid-template-rows: 90px 90px 65px 65px 1fr;
+    justify-items: start;   
+    align-content : start;
+}
+.grid_form form label { text-align : left; }
+.grid_form form label select { width : 100%; }
+
+.addressBox { 
+    grid-column: 1;
+    grid-row: 5;
+
+    /*display : flex;
+    flex-wrap : wrap;
+    justify-content: flex-end;
+    align-items: center;*/
+
+
+    align-self: end;
+
+    /*display : table-cell;
+    text-align : right;
+    vertical-align : middle;*/
+    width : 100%;
+
+}
+.addressBox p {
+    display : flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    border : solid 1px rgba(56, 56, 60, 0.75);
+    padding : 0.3rem;
+}
+.grid_mapView {
+    grid-area: mapView;
+}
+
+/* カレンダー類 */
+.calendarBox {
+    text-align : left;
+    width : 100%;
+}
+.calendarBox input { width : 100%; }
+
+/* カレンダーと連動するtimeStamp型の入力ボックス */
+.timeStamp {
+    position : absolute;
+    top : 0;
+    left: 0;
+    z-index : -1;
+    display : none;
+}
+
+
+
+/* overwrite ----- ----- ----- */
+.inner {
+    grid-template-areas:
+    "form mapView"
+    ;
+
+    grid-template-columns: 1fr 2.6fr;
+    /*box-sizing: content-box;
+    padding : 0;
+    margin : 0;*/
+
+    /*align-items: stretch;*/
+}
+
+
+footer form {
+    display:-webkit-box;
+    display:-ms-flexbox;
+    display:flex;
+
+    -webkit-box-pack:justify;
+    -ms-flex-pack:justify;
+    justify-content:space-between;
+
+    align-items: center;
+}
+/*footer form label {
+    display : table-cell;
+    vertical-align: middle;
+}*/
+

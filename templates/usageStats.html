@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta charset='utf-8' />
+
+    <!-- 以下の内容は上長に確認してから本決定する -->
+    <title>ご利用状況 - 駐車場ニーズマッチング支援PF</title>
+    <meta name='description' content='ページの概要を100文字前後（最大200文字程度）' />
+    <meta name='keywords' content='検索エンジンに提供するキーワードをカンマ区切りで入力' />
+    <meta name='author' content='ページの作者を入力する' />
+
+    <link rel='stylesheet' href='../static/css/centerBox.css' />
+    <link rel='stylesheet' href='../static/css/common.css' />
+
+    <link rel='stylesheet' href='../static/extension_usageStats.css' />
+
+</head>
+<body>
+
+    <article class='container'>
+        <section class='box_contents'>  <!-- 幅、グリッド組の微調整をextension_.cssで行う -->
+            <h1>ご利用状況</h1>
+
+            <!-- tableタグを使わない（grid配置）で対応する場合
+            <section class='inner'>
+
+                <p style='grid-column: 2; grid-row: 1'>日時</p>
+                <p style='grid-column: 3; grid-row: 1'>住所</p>
+
+                <input class='common_cancel_mini' style='grid-column: 1; grid-row: 2; width: 80px;' value='ご利用済み' />
+                <input class='common_cancel_mini' style='grid-column: 1; grid-row: 3; width: 80px;' value='ご利用済み' />
+                <input class='common_button_mini' style='grid-column: 1; grid-row: 4; width: 80px;' value='予約詳細' />
+
+                </!-- 実際には以下の内容は可変（サーバーから情報をもらって、その値を反映させる） --//>
+                <p style='grid-column: 2; grid-row: 2'>2022年 9月 24日 10:00 - 11:00</p>
+                <p style='grid-column: 2; grid-row: 3'>2022年 10月 05日 10:00 - 11:00</p>
+                <p style='grid-column: 2; grid-row: 4'>2022年 12月 21日 10:00 - 11:00</p>
+
+                <p style='grid-column: 3; grid-row: 2'>〒350-1255 埼玉県日高市武蔵台4-13-4</p>
+                <p style='grid-column: 3; grid-row: 3'>〒350-1255 埼玉県日高市武蔵台4-13-4</p>
+                <p style='grid-column: 3; grid-row: 4'>〒350-1255 埼玉県日高市武蔵台4-13-4</p>
+            </section>
+            -->
+
+            <form>
+                <table class='inner'>
+                    {%if reservelist%}
+                    <tr>
+                        <th> </th>
+                        <th>日時</th>
+                        <th>住所</th>
+                    </tr>
+
+                    {%for reserve in reservelist%}
+                    <tr>
+                        {%if reserve.resv_status==0%}
+                        <td><a href="{{url_for('usageStatsDetails', reserve_id = reserve.id)}}" ><input class='common_cancel_mini' value='利用済み' /></a></td>
+                        {%elif reserve.resv_status==1%}
+                        <td><a href="{{url_for('usageStatsDetails', reserve_id = reserve.id)}}" ><input class='common_cancel_mini' value='予約済み' /></a></td>
+                        {%elif reserve.resv_status==2%}
+                        <td><a href="{{url_for('usageStatsDetails', reserve_id = reserve.id)}}" ><input class='common_cancel_mini' value='利用中' /></a></td>
+                        {%endif%}
+                        <td>{{reserve.use_start}} - {{reserve.use_end}}</td>
+                        <td>{{reserve.postal_code}} {{reserve.address1}} {{reserve.address2}}</td>
+                    </tr>
+                    {%endfor%}
+                    {%else%}
+                    <p>現在、ご予約はありません</p>
+                    {%endif%}
+
+                    <!-- 実際には以下の内容は可変（サーバーから情報をもらって、その値を反映させる）
+                    <tr>
+                        <td><input class='common_cancel_mini' value='ご利用済み' /></td>
+                        <td>2022年 9月 24日 10:00 - 11:00</td>
+                        <td>〒350-1255 埼玉県日高市武蔵台4-13-4</td>
+                    </tr>
+                    <tr>
+                        <td><input class='common_cancel_mini' value='ご利用済み' /></td>
+                        <td>2022年 10月 05日 10:00 - 11:00</td>
+                        <td>〒350-1255 埼玉県日高市武蔵台4-13-4</td>
+                    </tr>
+                    <tr>
+                        <td><input class='common_button_mini' value='予約詳細' /></td>
+                        <td>2022年 12月 21日 10:00 - 11:00</td>
+                        <td>〒350-1255 埼玉県日高市武蔵台4-13-4</td>
+                    </tr> -->
+                </table>
+            </form>
+
+            <nav class='buttonMenu'>
+                <form>
+                    <a href="mainForm"><input class='common_button common_fat' style='width : 42%;' type='button' value='トップに戻る' /></a>
+                </form>
+            </nav>
+            
+
+        </section>
+    </article>
+
+</body>
+
+</html>

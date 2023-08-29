@@ -1,0 +1,16 @@
+.popup {
+    text-align : center;
+}
+
+.popup img {
+    width : 100%;
+    height : auto;
+}
+
+.popup table {
+    border-collapse: collapse;
+}
+.popup td {
+    padding : 2px;
+    border-bottom : solid 1px rgb(75, 75, 75);
+}

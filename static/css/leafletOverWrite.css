@@ -1,0 +1,24 @@
+/* LeafletのデフォルトCSSを上書きする */
+
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+    background: -moz-linear-gradient(12deg, rgba(228, 228, 228, 1.0), rgba(255, 255, 255, 0.9));
+    background: -webkit-linear-gradient(12deg, rgba(228, 228, 228, 1.0), rgba(255, 255, 255, 0.9));
+    background: linear-gradient(12deg, rgba(228, 228, 228, 1.0), rgba(255, 255, 255, 0.9)); 
+    border-color: rgb(59, 59, 77);
+}
+
+.leaflet-popup-content-wrapper {
+    border-width: 2.2px;
+    border-style: solid;
+}
+
+.leaflet-popup-tip-container {
+    margin-top: -3px;
+    height: 23px;
+}
+
+.leaflet-popup-tip {
+    border-style: solid;
+    border-width: 0 3px 3px 0;
+}

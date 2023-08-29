@@ -1,0 +1,95 @@
+:root { --adjustMargin : 0.5rem; } /* フォームの間隔調整用 */
+
+label {vertical-align: middle;}
+label.paragraph {
+    margin-top : 0.3rem;
+    font-size : 1em;
+    text-align : left;
+}
+
+.postalCodeText {   /* この辺のmax、minの値については適当に決めただけなので、適宜、変更すること */
+    max-width : 120px;
+    min-width : 70px;
+    width : 16%;
+}
+.priceText {
+    max-width : 200px;
+    min-width : 80px;
+    width : 36%;
+}
+.timeText {
+    max-width : 120px;
+    min-width : 60px;
+    width : 24%;
+}
+.midiumText {
+    max-width : 150px;
+    min-width : 100px;
+    width : 30%;
+}
+
+.remarks {
+    width : 90%;
+    height : 5rem;
+}
+
+.withSelectButton {
+    width : auto;
+    float : left;
+}
+
+/*  ----- ----- ----- */
+.secretItems {
+    position : absolute;
+    top : 0;
+    left : 0;
+    /* 表示、非表示を変えたい場合は以下を操作する */
+    /*display : block; */
+    display : none;
+}
+
+
+/*  ----- ----- ----- */
+.grid_form_common {
+    display : grid;
+    min-width : 450px;
+    max-width : 700px;
+    width : 100%;
+
+    grid-template-columns: 150px 1fr;
+    align-content : start;
+
+    row-gap: var(--adjustMargin, 0.5rem);
+}
+
+.grid_form { grid-area: form; margin-bottom : var(--adjustMargin, 0.5rem); }
+.grid_imageForm { grid-area: imageForm;}
+
+.grid_mapTool { grid-area: mapTool; align-content : start;}
+.grid_mapView { grid-area: mapView; }
+.grid_imageView {
+    grid-area: imageView;
+    display: flex;
+    justify-content: space-between;
+}
+.grid_imageView img {
+    height : auto;
+    width : calc((100% / 3) - 10px);
+}
+
+
+/* leaflet ----- ----- ----- */
+#leaflet {
+
+}
+
+/* overwrite ----- ----- ----- */
+.inner {
+    grid-template-areas:
+    "form mapTool"
+    "form mapView"
+    "imageForm imageView"
+    ;
+
+    align-items: start;
+}

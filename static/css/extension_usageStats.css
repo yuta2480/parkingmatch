@@ -1,0 +1,43 @@
+/* overwrite (common.css) ----- ----- ----- */
+/* ボタン類 */
+.common_button_mini {
+    background-color : rgb(20, 100, 200);
+
+    text-indent : 0;
+    font-size : 1.2rem;
+    text-align : center;
+    color : white;
+
+    height : 2.6rem;
+    border-radius : 1.3rem;
+}
+
+.common_cancel_mini {
+    background-color : rgb(156, 156, 156);
+
+    text-indent : 0;
+    font-size : 1.2rem;
+    text-align : center;
+    color : white;
+
+    height : 2.6rem;
+    border-radius : 1.3rem;
+
+}
+
+
+/* overwrite (centerBox.css) ----- ----- ----- */
+/* tableタグを使わない（grid配置）で対応する場合
+.inner {    
+    grid-template-columns: 1.5fr 3.2fr 4fr;
+    margin : 0 4rem;
+}
+*/
+
+/* tableタグで対応する場合 */
+.inner td {
+    padding : 1rem 1.2rem;
+    font-size : 1.8rem;
+}
+.inner td:first-child { width : 80px; }
+.inner td input { width : 80px; }

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta charset='utf-8' />
+
+    <!-- 以下の内容は上長に確認してから本決定する -->
+    <title>ご利用状況 - 駐車場ニーズマッチング支援PF</title>
+    <meta name='description' content='ページの概要を100文字前後（最大200文字程度）' />
+    <meta name='keywords' content='検索エンジンに提供するキーワードをカンマ区切りで入力' />
+    <meta name='author' content='ページの作者を入力する' />
+
+    <link rel='stylesheet' href='../static/css/centerBox.css' />
+    <link rel='stylesheet' href='../static/css/common.css' />
+
+</head>
+<body>
+    <article class='container'>
+        <section class='box' style='max-width : 580px; min-width : 260px'>  <!-- 幅のみoverwrite -->
+            <h1>詳細画面</h1>
+            {%if reserve.resv_status==0%}
+            <h2>ステータス：ご利用済み</h2>
+            <h3>※ご利用後のキャンセルはできません</h3>
+            {%elif reserve.resv_status==1%}
+            <h2>ステータス：ご予約済み</h2>
+            {%elif reserve.resv_status==2%}
+            <h2>ステータス：ご利用中</h2>
+            <h3>※ご利用中のキャンセルは基本受け付けておりません</h3>
+            {%endif%}
+
+
+            <!-- 実際には以下の内容は可変（サーバーから情報をもらって、その値を反映させる） -->
+            <table class='inner flatTable'>
+                <tr>
+                    <td>ご利用開始日時</td>
+                    <td>{{reserve.use_start}}</td>
+                </tr>
+                <tr>
+                    <td>ご利用終了日時</td>
+                    <td>{{reserve.use_end}}</td>
+                </tr>
+                <tr>
+                    <td>料金</td>
+                    <td>{{parking.price_day}}円&sol;1日</td>
+                </tr>
+                <tr>
+                    <td>駐車期間</td>
+                    <td>最大{{parking.max_day}}日まで可</td>
+                </tr>
+                <tr>
+                    <td>住所</td>
+                    <td>〒{{parking.postal_code}} {{parking.address1}}{{parking.address2}}</td>
+                </tr>
+                <tr>
+                    <td>TEL</td>
+                    <td>{{parking.tel}}</td>
+                </tr>
+                <tr>
+                    <td>備考</td>
+                    <td>{{parking.etc}}</td>
+                </tr>
+            </table>
+
+            <footer>
+                <nav class='buttonMenu'>
+                    <form>
+                        <a href="{{url_for('usageStats')}}">
+                            <input class='common_button common_fat' style='width : 42%;' type='button' value='ご利用の状況に戻る' />
+                        </a>
+                        <a href="{{url_for('deleteReserve', reserve_id=reserve.id)}}">
+                            <input class='common_cancel common_fat' style='width : 42%;' type='button' value='予約をキャンセル' />
+                        </a>
+                    </form>
+                </nav>
+            </footer>
+
+        </section>
+    </article>
+
+</body>
+
+</html>

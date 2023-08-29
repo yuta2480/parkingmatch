@@ -1,0 +1,152 @@
+/* CSS変数 
+ * > IEがサポートしていないかも？
+ */
+
+:root {  /* global */
+    --labelFontSize : 1.2rem;
+}
+
+
+/* ルート情報 ----- ----- ----- --- ----- ----- ----- --- ----- ----- ----- --- ----- ----- ----- --- */
+html {
+    font-size: 62.5%;   /* root font size （基準文字サイズ）　※16px の 62.5% で 10px*/
+    box-sizing: border-box;
+}
+
+body {
+    font-size : 1.6em;
+    font-family: "Helvetica Neue",
+        Arial,
+        "Hiragino Kaku Gothic ProN",
+        "Hiragino Sans",
+        Meiryo,
+        sans-serif;
+}
+
+
+
+
+/* 文書構造情報 ----- ----- ----- --- ----- ----- ----- --- ----- ----- ----- --- ----- ----- ----- --- */
+header {
+    width : 100%;
+
+    display: flex;
+    place-items: center;
+
+    background-color : rgb(38, 110, 200);
+    color : white;
+}
+header > :first-child {
+    margin-right : auto;
+}
+header nav a {
+    /* 余白・間隔の調整 */
+    margin : 0 0.5rem;
+    padding : 1.2rem 3rem;
+
+    background-color : rgb(38, 154, 200);
+    height : 8rem;
+    border-radius: 4rem;
+}
+
+
+nav.buttonMenu {
+    margin-top : 2rem;
+}
+
+
+
+/* 文字・テキスト ----- ----- ----- --- ----- ----- ----- --- ----- ----- ----- --- ----- ----- ----- --- */
+h1 { 
+    font-size : 2.5rem;
+}
+
+h2 {
+    font-size : 2rem;
+}
+
+.accentMessage {
+    font-size : 3.2rem;
+    font-weight : bold;
+}
+
+/* フォーム関係 ----- ----- ----- --- ----- ----- ----- --- ----- ----- ----- --- ----- ----- ----- --- */
+label {
+    font-size : var(--labelFontSize, 1.2rem);
+}
+label.annotation {
+    font-size : 1rem;
+    font-weight : bold;
+    text-align : left;
+}
+
+input, select {
+    text-indent : 1rem;
+    border : solid 0.1rem gray;
+    height : 2.8rem;
+    border-radius : 0.5rem;
+
+    cursor: pointer;
+}
+select {width : 80%;}
+
+input.common_checkBox {
+    width : 2.6rem; height : 2.6rem;
+    border-radius : 0.4rem;
+}
+.ownCheckBox {
+    display : flex;
+    justify-content: start;
+    align-items: center;
+}
+
+
+/* ボタン類 */
+.common_button {
+    background-color : rgb(20, 100, 200);
+
+    text-indent : 0;
+    font-size : 2rem;
+    color : white;
+    height : 4rem;
+    border-radius : 2rem;
+
+    /*height : 5.8rem;
+    border-radius : 2.9rem;*/
+
+    margin : 0 1.4rem;
+}
+
+.common_cancel {
+    background-color : rgb(156, 156, 156);
+
+    text-indent : 0;
+    font-size : 2rem;
+    color : white;
+
+    height : 4rem;
+    border-radius : 2rem;
+    /*height : 5.8rem;
+    border-radius : 2.9rem;*/
+
+    margin : 0 1.4rem;
+}
+
+.common_fat { /* 太めのボタン用 */
+    height : 5.8rem;
+    border-radius: 2.9rem;
+}
+
+.common_selectButton {
+    border : none;
+    background-color : rgb(198, 215, 255);
+
+    text-indent : 0;
+    box-sizing: content-box;
+    margin-left : 0.5rem;
+}
+
+
+/* テキストフィールド */
+.miniBox { width : 4rem; }
+.mini_postCode { width : 8rem; }

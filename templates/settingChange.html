@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta charset='utf-8' />
+
+    <!-- 以下の内容は上長に確認してから本決定する -->
+    <title>設定変更 - 駐車場ニーズマッチング支援PF</title>
+    <meta name='description' content='ページの概要を100文字前後（最大200文字程度）' />
+    <meta name='keywords' content='検索エンジンに提供するキーワードをカンマ区切りで入力' />
+    <meta name='author' content='ページの作者を入力する' />
+
+    <link rel='stylesheet' href='../static/css/centerBox.css' />
+    <link rel='stylesheet' href='../static/css/common.css' />
+
+</head>
+<body>
+
+    <article class='container'>
+        <section class='box_contents'>
+            <h1>設定変更</h1>
+            <p>{{ error }}</p>
+            <form method="POST" action="{{ url_for('settingChange') }}">
+                <table class='inner'>
+                    <tr>
+                        <td>メールアドレス</td>
+                        <td><input type='email' name='email' required value={{ user.email }} /></td>
+                    </tr>
+                    <tr>
+                        <td>パスワード</td>
+                        <td><input type='password' name='password' required value="" /></td>
+                    </tr>
+                    <tr>
+                        <td>パスワード再入力</td>
+                        <td><input type='password' name='password_confirm' required value="" /></td>
+                    </tr>
+                    <tr>
+                        <td>姓（漢字）</td>
+                        <td><input type='text' name='last_name' required value={{ user.last_name }} /></td>
+                    </tr>
+                    <tr>
+                        <td>名（漢字）</td>
+                        <td><input type='text' name='first_name' required value={{ user.first_name }} /></td>
+                    </tr>
+                    <tr>
+                        <td>姓（カタカナ）</td>
+                        <td><input type='text' name='last_name_kana' required value={{ user.last_name_kana }} /></td>
+                    </tr>
+                    <tr>
+                        <td>名（カタカナ）</td>
+                        <td><input type='text' name='first_name_kana' required value={{ user.first_name_kana }} /></td>
+                    </tr>
+                    <tr>
+                        <td>郵便番号（ハイフンなし）</td>
+                        <td><input type='number' class='mini_postCode' name='postal_code' required value={{ user.postal_code }} /></td>
+                    </tr>
+                    <tr>
+                        <td>住所1</td>
+                        <td><input type='text' name='address1' required value={{ user.address1 }} /></td>
+                    </tr>
+                    <tr>
+                        <td>住所2</td>
+                        <td><input type='text' name='address2' required value={{ user.address2 }} /></td>
+                    </tr>
+                    <tr>
+                        <td>電話番号</td>
+                        <td><input type='number' name='tel' required value={{ user.tel }} /></td>
+                    </tr>
+                        <tr>
+                        <td>生年月日（西暦19800614）</td>
+                        <td><input type='number' name='birthday' value={{ user.birthday }} /></td>
+                    </tr>
+                    <tr>
+                        <td>ナンバー（下4桁）</td>
+                        <td><input type='number' name='carNumber' value={{ user.carNumber }} /></td>
+                    </tr>
+                </table>
+
+                <footer>
+                    <nav class='buttonMenu'>
+                        <input class='common_button' style='width : 27%;' type='submit' value='更新する' />
+                        <a href="parkingRegistration"><input class='common_button' style='width : 27%;' type='button' value='駐車場の登録・変更' /></a>
+                        <a href="mainForm"><input class='common_cancel' style='width : 27%;' type='button' value='キャンセルする' /></a>
+                    </nav>
+                </footer>
+            </form>
+        </section>
+    </article>
+
+</body>
+
+</html>

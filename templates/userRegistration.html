@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta charset='utf-8' />
+
+    <!-- 以下の内容は上長に確認してから本決定する -->
+    <title>新規ユーザー登録画面 - 駐車場ニーズマッチング支援PF</title>
+    <meta name='description' content='ページの概要を100文字前後（最大200文字程度）' />
+    <meta name='keywords' content='検索エンジンに提供するキーワードをカンマ区切りで入力' />
+    <meta name='author' content='ページの作者を入力する' />
+
+    <link rel='stylesheet' href='../static/css/centerBox.css' />
+    <link rel='stylesheet' href='../static/css/common.css' />
+
+</head>
+<body>
+
+    {% if error %}
+        <p>{{ error }}</p>
+    {% endif %}
+
+    <article class='container'>
+        <section class='box'>
+            <h1>駐車場ニーズマッチング支援PF</h1>
+            <h2>新規ユーザー登録画面</h2>
+
+            <form method="POST" action="{{ url_for('userRegistration') }}">
+            <table class='inner'>
+                <tr>
+                    <td>メールアドレス</td>
+                    <td><input type='email' name='email' required /></td>
+                </tr>
+                <tr>
+                    <td>パスワード</td>
+                    <td><input type='password' name='password' required /></td>
+                </tr>
+                <tr>
+                    <td>パスワード再入力</td>
+                    <td><input type='password' name='password_confirm' required /></td>
+                </tr>
+                <tr>
+                    <td>姓（漢字）</td>
+                    <td><input type='text' name='last_name' required /></td>
+                </tr>
+                <tr>
+                    <td>名（漢字）</td>
+                    <td><input type='text' name='first_name' required /></td>
+                </tr>
+                <tr>
+                    <td>姓（カタカナ）</td>
+                    <td><input type='text' name='last_name_kana' required /></td>
+                </tr>
+                <tr>
+                    <td>名（カタカナ）</td>
+                    <td><input type='text' name='first_name_kana' required /></td>
+                </tr>
+                <tr>
+                    <td>郵便番号（ハイフンなし）</td>
+                    <td><input type='number' class='mini_postCode' name='postal_code' required /></td>
+                </tr>
+                <tr>
+                    <td>住所1（埼玉県日高市）</td>
+                    <td><input type='text' name='address1' required /></td>
+                </tr>
+                <tr>
+                    <td>住所2（武蔵台１－１－１）</td>
+                    <td><input type='text' name='address2' required /></td>
+                </tr>
+                <tr>
+                    <td>電話番号（ハイフンなし）</td>
+                    <td><input type='number' name='tel' required /></td>
+                </tr>
+                <tr>
+                    <td>生年月日（西暦19800614）※任意</td>
+                    <td><input type='number' name='birthday' /></td>
+                </tr>
+                <tr>
+                    <td>ナンバー（下4桁）　　　　※任意</td>
+                    <td><input type='number' name='carNumber' /></td>
+                </tr>
+            </table>
+            <nav class='buttonMenu'>
+                    <input class='common_button' style='width : 42%;' type='submit' value='新規登録' />
+                    <a href="login"><input class='common_cancel' style='width : 42%;' type='button' value='キャンセル' /></a>
+            </nav>
+            </form>       
+
+        </section>
+    </article>
+
+</body>
+
+</html>

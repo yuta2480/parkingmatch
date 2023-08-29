@@ -1,0 +1,58 @@
+.container {
+    display: grid;
+    place-items: center;
+}
+
+.box_mini {
+    text-align : center;
+
+    max-width: 450px;
+    min-width: 200px;
+    width: 50%;
+}
+.box {
+    text-align : center;
+
+    max-width: 640px;
+    min-width: 400px;
+    width: 70%;
+
+}
+.box_contents {
+    text-align : center;
+
+    max-width: 1000px;
+    min-width: 750px;
+    width: 100%;
+}
+
+
+.inner {
+    display: grid;
+/*    place-items: start;   */
+    place-items: center;
+
+    /* table.innerのみ作用 */
+    border-collapse: separate;
+    border-spacing: 5px;
+}
+.inner td {
+    font-size : var(--labelFontSize, 1.2rem);
+    text-align : left;
+}
+.inner p {
+    margin : 0.5rem 0;
+    justify-self: start;
+}
+
+.inner_compact {
+    height : 50vh;
+    display : flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flatTable td {
+    font-size : 1.7rem;
+    padding : 0 2rem;
+}

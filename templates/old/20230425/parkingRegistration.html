@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta charset='utf-8' />
+
+    <!-- 以下の内容は上長に確認してから本決定する -->
+    <title>駐車場登録画面 - 駐車場ニーズマッチング支援PF</title>
+    <meta name='description' content='ページの概要を100文字前後（最大200文字程度）' />
+    <meta name='keywords' content='検索エンジンに提供するキーワードをカンマ区切りで入力' />
+    <meta name='author' content='ページの作者を入力する' />
+
+    <!-- Leaflet script and CSS -->
+	<link rel='stylesheet' href='https://unpkg.com/leaflet@1.3.0/dist/leaflet.css' />
+	<script src='https://unpkg.com/leaflet@1.3.0/dist/leaflet.js'></script>
+
+    <link rel='stylesheet' href='../static/css/centerBox.css' />
+    <link rel='stylesheet' href='../static/css/common.css' />
+
+    <link rel='stylesheet' href='../static/css/extension_parkingReg.css' /> 
+
+</head>
+<body onLoad='initialize()'>
+
+    <article class='container'>
+        <section class='box_contents'>
+            <h1>駐車場登録画面</h1>
+
+            <form>
+                <div class='inner'>
+                    <section class='grid_form_common grid_form'>
+                        <!-- labelとinputが紐づいていない部分もあります。実運用の際はlabel forなどでinputをちゃんと紐づける（またはlabel要素を外す）こと -->
+                        <!-- 1. 住所関係 ----- ----- ----- -->
+
+                        <p style='grid-column: 1; grid-row: 1'>郵便番号</p>
+                        <p style='grid-column: 1; grid-row: 2'>住所1</p>
+                        <p style='grid-column: 1; grid-row: 3'>住所2</p>
+                        <p style='grid-column: 1; grid-row: 4'>TEL</p>
+
+                        <div style='grid-column: 2; grid-row: 1'>
+                            <input class='withSelectButton' class='postalCodeText' type='number' name='postalCode' required />
+                            <input class='common_selectButton' type='button' value='住所を入力' />
+                        </div>
+                        <input style='grid-column: 2; grid-row: 2' type='text' name='address1' required />
+                        <input style='grid-column: 2; grid-row: 3' type='text' name='address2' required />
+                        <input style='grid-column: 2; grid-row: 4' type='number' name='telNumber' pattern='\d{2,4}-?\d{2,4}-?\d{3,4}' required /> 
+
+                        <!-- 2. 貸出タイプ ----- ----- ----- -->
+
+                        <p style='grid-column: 1; grid-row: 5'>貸出タイプ</p>
+                        <table style='grid-column: 2; grid-row: 5'>
+                            <tr>
+                                <th style='width : 24%;'></th>
+                                <th style='width : 40%;'>単位料金</th>
+                                <th style='width : 33%;'>貸出期間</th>
+                            </tr>
+                            <tr>
+                                <td class='ownCheckBox'><input class='common_checkBox' type='checkbox' /><label>時間</label></td>
+                                <td><label><input class='priceText' type='text' />円&sol;1時間</label></td>
+                                <td><label>最大<input class='miniBox' type='number' />時間</label></td>
+                            </tr>
+                            <tr>
+                                <td class='ownCheckBox'><input class='common_checkBox' type='checkbox' /><label>日</label></td>
+                                <td><label><input class='priceText' type='text' />円&sol;1日</label></td>
+                                <td>最大<label><input class='miniBox' type='number' />日</label></td>
+                            </tr>
+                            <tr>
+                                <td class='ownCheckBox'><input class='common_checkBox' type='checkbox' /><label>月</label></td>
+                                <td><label><input class='priceText' type='text' />円&sol;1月</label></td>
+                                <td><label>最大<input class='miniBox' type='number' />ヶ月</label></td>
+                            </tr>
+                        </table>
+
+                        <!-- 3. 貸出条件 ----- ----- ----- -->
+
+                        <p style='grid-column: 1; grid-row: 6'>貸出条件</p>
+                        <table style='grid-column: 2; grid-row: 6'>
+                            <tr>
+                                <td class='ownCheckBox' style='width : 140px;'><input class='common_checkBox' type='checkbox' /><label>入出庫可能時間</label></td>
+                                <td><input class='timeText' type='text' /> ～ <input class='timeText' type='text' /></td>
+                            </tr>
+                            <tr>
+                                <td class='ownCheckBox'><input class='common_checkBox' type='checkbox' /><label>入庫可能車種</label></td>
+                                <td>最大<input class='midiumText' type='number' /></td>
+                            </tr>
+                            <tr>
+                                <td class='ownCheckBox'><input class='common_checkBox' type='checkbox' /><label>入庫可能</label></td>
+                                <td>最大<input class='midiumText' type='text'/></td>
+                            </tr>
+                        </table>
+
+                        <!-- 4. 備考 ----- ----- ----- -->
+
+                        <p style='grid-column: 1; grid-row: 7;'>備考</p>
+                        <textarea style='grid-column: 2; grid-row: 7;' class='remarks' name='remarks' required></textarea>
+                    </section>
+
+                    <section class='grid_form_common grid_imageForm'>
+                        <!-- 5. 写真イメージ ----- ----- ----- -->
+
+                        <p style='grid-column: 1; grid-row: 1'>駐車場イメージ1</p>
+                        <p style='grid-column: 1; grid-row: 2'>駐車場イメージ2</p>
+                        <p style='grid-column: 1; grid-row: 3'>駐車場イメージ3</p>
+
+                        <div style='grid-column: 2; grid-row: 1'>
+                            <input class='withSelectButton' type='text' /><input class='common_selectButton' type='button' value='写真を選択' />
+                        </div>
+                        <div style='grid-column: 2; grid-row: 2'>
+                            <input class='withSelectButton' type='text' /><input class='common_selectButton' type='button' value='写真を選択' />
+                        </div>
+                        <div style='grid-column: 2; grid-row: 3'>
+                            <input class='withSelectButton' type='text' /><input class='common_selectButton' type='button' value='写真を選択' />
+                        </div>
+
+                    </section>
+
+
+                    <!-- 6. 地図 ----- ----- ----- -->
+                    <section class='grid_mapView'>
+                        <div id='leafletObj' style='width : 460px; height : 460px'></div>
+                    </section>
+       
+                    <!-- 7. 実際の写真イメージ ----- ----- ----- -->           
+                    <section class='grid_imageView'>
+                        <img src='../static/images/parkImage.png' />
+                        <img src='../static/images/dummy.png' />
+                        <img src='../static/images/dummy.png' />
+                    </section>
+                    
+                </div>
+
+
+            </form>
+
+            <footer>
+                <nav class='buttonMenu'>
+                    <form>
+                        <input class='common_button' style='width : 38%;' type='button' value='登録する' />
+                        <!-- <input class='common_cancel' style='width : 38%;' type='button' value='キャンセルする' /> -->
+                    </form>
+                    <a href="settingChange" class='common_cancel' style='width : 38%;' type='button' >キャンセルする</a>
+                </nav>
+            </footer>
+
+        </section>
+    </article>
+
+
+
+	<!-- Javascripts... -->
+	<script src='../static/script/main.js'></script>
+
+</body>
+
+</html>
