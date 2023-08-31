@@ -376,6 +376,7 @@ def usageStats():
     else:
         pass
 
+
 @app.route('/parkingRegistration', methods=['GET','POST'])
 @login_required
 def parkingRegistration():
