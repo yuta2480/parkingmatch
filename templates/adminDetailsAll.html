@@ -33,6 +33,7 @@
                             <th >ご利用者</th>
                             <th >開始</th>
                             <th >終了</th>
+                            <th >ご予約・利用日数</th>
                             <th >駐車場名</th>                            
                             <th >住所</th>
                         </tr>
@@ -43,6 +44,7 @@
                             <td class="{sortValue: 1}">{{reserve.last_name}} {{reserve.first_name}}様</td>
                             <td class="{sortValue: 2}">{{reserve.use_start}}</td>
                             <td class="{sortValue: 3}">{{reserve.use_end}}</td>
+                            <td class="{sortValue: 4}">{{reserve.use_days}}</td>
                             <td class="{sortValue: 4}">{{reserve.title}}</td>
                             <td class="{sortValue: 4}">{{reserve.address1}} {{reserve.address2}}</td>
                         </tr>
@@ -56,7 +58,7 @@
 
             <nav class='buttonMenu'>
                 <form>
-                    <a href="login"><input class='common_button common_fat' style='width : 42%;' type='button' value='トップに戻る' /></a>
+                    <a href="adminTop"><input class='common_button common_fat' style='width : 42%;' type='button' value='管理者メニューにもどる' /></a>
                     {#<a href="{{ url_for('download_csv') }}" download="database_results.csv"><button>Download CSV</button></a>#}
                     
                 

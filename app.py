@@ -9,8 +9,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin, LoginManager, login_user, current_user, logout_user, login_required
 from werkzeug.security import generate_password_hash, check_password_hash
 import os
-from datetime import datetime
-from datetime import timedelta 
+from datetime import datetime, timedelta
 import pytz
 import pandas as pd
 
@@ -175,7 +174,7 @@ def login():
         else:
             print('ログイン失敗')
             # ログイン失敗時の処理
-            return render_template('login.html', error='Invalid email or password')
+            return render_template('login.html', error='email or passwordが違っています。')
     elif request.method == 'GET':
         return render_template('login.html')
 
@@ -507,29 +506,112 @@ def confirmationOfApplicationDetails():
 def mailSend():
     return render_template('mailSend.html')
 
-# 管理者コンソール（仮）
-@app.route('/admin', methods=['GET','POST'])
-# @login_required
-def admin():
-    if request.method=='GET':
-        # 駐車場DBから予約されたデータだけを抽出し転送
-        join_query = db.session.query(User, Parking, Reserve).\
-            join(Reserve, User.id == Reserve.user_id).\
-            join(Parking, Reserve.park_id == Parking.id)
-        result = join_query.all()
-        
-        reservelist = []
-        for row in result:
-            user = row.User.__dict__
-            parking = row.Parking.__dict__
-            reserve = row.Reserve.__dict__
-            data = {}
-            data.update(user)
-            data.update(parking)
-            data.update(reserve)
-            reservelist.append(data)
 
-        return render_template('admin.html', reservelist=reservelist)
+### 管理者コンソール（仮）###
+
+# 管理者コンソールログイン
+@app.route('/loginAdmin', methods=['GET', 'POST'])
+def loginAdmin():
+    if request.method == 'POST':
+        email = request.form.get('email')
+        password = request.form.get('password')
+        print(f'email:{email}, password:{password}')
+        user = User.query.filter_by(email=email).first()
+        # if user and check_password_hash(user.password, password):
+        if user and (user.password==password) and (user.address2=='武蔵台1-23-5'):
+            print('ログイン成功')
+            # ログイン成功時の処理
+            login_user(user)
+            return redirect(url_for('adminTop'))
+        else:
+            print('ログイン失敗')
+            # ログイン失敗時の処理
+            return render_template('loginAdmin.html', error='email or passwordが違っています。')
+    elif request.method == 'GET':
+        return render_template('loginAdmin.html')
+
+
+# 管理者コンソールトップ
+@app.route('/adminTop', methods=['GET','POST'])
+@login_required
+def adminTop():
+    if request.method=='GET':
+        return render_template('adminTop.html')
+    elif request.method=='POST':
+        pass
+
+
+# 管理者コンソール 月次の利用履歴の表示と出力
+@app.route('/adminDetailsMonth', methods=['GET','POST'])
+@login_required
+def adminDetailsMonth():
+
+    # 駐車場DBから予約されたデータだけを抽出し転送
+    join_query = db.session.query(User, Parking, Reserve).\
+        join(Reserve, User.id == Reserve.user_id).\
+        join(Parking, Reserve.park_id == Parking.id)
+    result = join_query.all()
+    
+    reservelist = []
+    # 先月の月初・末を取得
+    today = datetime.today()
+    lastMonth_start = (today - timedelta(days=today.day)).replace(day=1, hour=0, minute=0, second=0, microsecond=0)
+    lastMonth_end   = (today - timedelta(days=today.day)).replace(hour=23, minute=59, second=59, microsecond=0)
+    
+    for row in result:
+        user = row.User.__dict__
+        parking = row.Parking.__dict__
+        reserve = row.Reserve.__dict__
+        
+        # 先月内の利用情報のみに限定
+        if reserve['use_start'] > lastMonth_end:
+            continue
+        if reserve['use_end'] < lastMonth_start:
+            continue
+        
+        # 利用開始・終了日が先月の期間をまたいでいる場合、月の開始・終了の日時に置き換える
+        if reserve['use_start'] < lastMonth_start:
+            reserve['use_start'] = lastMonth_start
+        if reserve['use_end'] > lastMonth_end:
+            reserve['use_end'] = lastMonth_end
+        data = {}
+        data.update(user)
+        data.update(parking)
+        data.update(reserve)
+        data.update({'use_days':(reserve['use_end']-reserve['use_start']).days + 1}) # 利用日数の算出
+        reservelist.append(data)
+
+    if request.method=='GET':
+        return render_template('adminDetailsMonth.html', reservelist=reservelist, lastMonth_start=lastMonth_start, lastMonth_end=lastMonth_end)
+    elif request.method=='POST':
+        pass
+
+        
+# 管理者コンソール 利用・予約状況の全履歴の表示
+@app.route('/adminDetailsAll', methods=['GET','POST'])
+@login_required
+def adminDetailsAll():
+
+    # 駐車場DBから予約されたデータだけを抽出し転送
+    join_query = db.session.query(User, Parking, Reserve).\
+        join(Reserve, User.id == Reserve.user_id).\
+        join(Parking, Reserve.park_id == Parking.id)
+    result = join_query.all()
+    
+    reservelist = []
+    for row in result:
+        user = row.User.__dict__
+        parking = row.Parking.__dict__
+        reserve = row.Reserve.__dict__
+        data = {}
+        data.update(user)
+        data.update(parking)
+        data.update(reserve)
+        data.update({'use_days':(reserve['use_end']-reserve['use_start']).days + 1}) # 利用日数の算出
+        reservelist.append(data)
+
+    if request.method=='GET':
+        return render_template('adminDetailsAll.html', reservelist=reservelist)
     elif request.method=='POST':
         pass
         # データベースからデータを取得します
