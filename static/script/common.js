@@ -53,3 +53,15 @@ function changeToTimecode(source) {
     let timecode = source.replace(/-| |\/|:/g, '');
     return parseInt(timecode);
 }
+function confirmPopup_cancelButton() {
+    // usageStatsDetails.htmlで、「利用済み」の状態でキャンセルボタンを押下した際の対応
+    flag = confirm('【システムロック】\nすでに利用済みのため、通常はキャンセルできませんが、よろしいでしょうか？');
+
+    // 「はい」が押されたときの処理
+    if (flag == true) {
+        alert('【ロック解除】\nシステムロックを解除しました。予約をキャンセルされたい場合、改めて「予約をキャンセル」ボタンをクリックしてください。');
+        document.getElementById('dummyButton').style.display = 'none';
+        document.getElementById('mainButton').style.display = 'inline';
+    }
+
+}

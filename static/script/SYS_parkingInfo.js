@@ -90,7 +90,7 @@ parkingInfo.prototype = {
         return true;
     },
     plotStatusUpdate_usableSizeCheck: function(size, item) {
-        return (size === 'all' || parseInt(item.usableSize, 10) <= parseInt(size, 10)) ? true : false;
+        return (size === 'all' || parseInt(item.usableSize, 10) >= parseInt(size, 10)) ? true : false;
     },
     /*plotStatusUpdate_addressCheck: function(address, item) {  // 今回は「武蔵台」の住所のみのため、addressでの検索機能は排除
         for (let prop in address.value) {
@@ -123,29 +123,40 @@ parkingInfo.prototype = {
         return rule;
     },
     arrangementFilter_usableTypeNum: function(source) {
-        /*
+        // debug 20230619
+        // 「3ナンバー」は「5ナンバー」も含むようにする
+        // return (source.value === '1. 5ナンバー') ? '1' : 'all';
+
+        // debug 20231016
+        // 「5ナンバー」は「3ナンバー」も含むようにする
         switch(source.value) {
-            case '1. 5ナンバー':    return '1'; break;
+            case '1. 5ナンバー':    return 'all'; break;
             case '2. 3ナンバー':    return '0'; break;
             default: return 'all';
         }
         return undefined;
-        */
 
-        // debug 20230619
-        // 「3ナンバー」は「5ナンバー」も含むようにする
-        return (source.value === '1. 5ナンバー') ? '1' : 'all';
     },
     arrangementFilter_usableSize: function(source) {
         // debug 20231011
         // 「155 ～ 170cm」は「155cm未満」も含むようにする
         // 「171cm ～」は「155 ～ 170cm」「155cm未満」も含むようにする
-        switch(source.value) {
+        /*switch(source.value) {
             case '1. 155cm未満':        return '0'; break;
             case '2. 155 ～ 170cm':     return '1'; break;
             case '3. 171cm ～':         return 'all'; break;
             default: return 'all';
+        }*/
+
+        // debug 20231016
+        // これまでとは逆。「小は大を兼ねる」形に修正。
+        switch(source.value) {
+            case '1. 155cm未満':        return 'all'; break;
+            case '2. 155 ～ 170cm':     return '1'; break;
+            case '3. 171cm ～':         return '2'; break;
+            default: return 'all';
         }
+
         return undefined;
 
     },

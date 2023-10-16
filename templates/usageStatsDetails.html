@@ -13,6 +13,9 @@
     <link rel='stylesheet' href='../static/css/centerBox.css' />
     <link rel='stylesheet' href='../static/css/common.css' />
 
+    <!-- Extension CSS files -->
+    <link rel='stylesheet' href='../static/css/extension_usageStatsDetails.css' />
+
 </head>
 <body>
     <article class='container'>
@@ -64,18 +67,31 @@
             <footer>
                 <nav class='buttonMenu'>
                     <form>
+                        {%if reserve.resv_status==0%}
+                        <a href="{{url_for('usageStats')}}">
+                            <input class='common_button common_fat' style='width : 42%;' type='button' value='ご利用の状況に戻る' />
+                        </a>
+                        <a href="{{url_for('deleteReserve', reserve_id=reserve.id)}}" id='mainButton'>
+                            <input class='common_cancel common_fat' style='width : 42%;' type='button' value='予約をキャンセル' />
+                        </a>
+                        <input class='common_cancel common_fat' style='width : 42%;' type='button' value='予約をキャンセル' id='dummyButton' onclick='confirmPopup_cancelButton()' />
+                        {%else%}
                         <a href="{{url_for('usageStats')}}">
                             <input class='common_button common_fat' style='width : 42%;' type='button' value='ご利用の状況に戻る' />
                         </a>
                         <a href="{{url_for('deleteReserve', reserve_id=reserve.id)}}">
                             <input class='common_cancel common_fat' style='width : 42%;' type='button' value='予約をキャンセル' />
                         </a>
+                        {%endif%}
                     </form>
                 </nav>
             </footer>
 
         </section>
     </article>
+
+    <!-- Javascripts... -->
+    <script src='../static/script/common.js'></script>
 
 </body>
 

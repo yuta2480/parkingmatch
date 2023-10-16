@@ -28,11 +28,12 @@
                     </tr>
                     <tr>
                         <td>パスワード</td>
-                        <td><input type='password' name='password' required value="" /></td>
+                        <td><input type='password' name='password' id='input_password' onBlur='passwordCheck(this)' required value="" /></td>
                     </tr>
                     <tr>
                         <td>パスワード再入力</td>
-                        <td><input type='password' name='password_confirm' required value="" /></td>
+                        <td><input type='password' name='password_confirm' id='input_passwordConfirm' onBlur='passwordCheck(this)' required value="" /></td>
+                        <td id='alert_passwordConfirm'><div class='arrow_box'>再入力された内容がパスワードと一致していないようです。</div></td>
                     </tr>
                     <tr>
                         <td>姓（漢字）</td>
@@ -86,6 +87,9 @@
             </form>
         </section>
     </article>
+
+    <!-- Javascripts... -->
+    <script src='../static/script/passwordCheck.js'></script>
 
 </body>
 
