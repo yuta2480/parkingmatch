@@ -4,7 +4,7 @@ Created on Tue Oct  5 11:34:40 2021
 
 @author: yuuta.nishiyama
 """
-from flask import Flask, render_template, request, redirect, url_for, session
+from flask import Flask, render_template, request, redirect, url_for, session, Response
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin, LoginManager, login_user, current_user, logout_user, login_required
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -12,6 +12,9 @@ import os
 from datetime import datetime, timedelta
 import pytz
 import pandas as pd
+import csv
+from io import StringIO
+import openpyxl
 
 
 app = Flask(__name__)
@@ -148,7 +151,18 @@ class Reserve(db.Model):
                 'resv_status' : self.resv_status
         }
 
-############
+###### 関数 ######
+
+def export_dict_to_csv(data):
+    output = StringIO()
+    csv_writer = csv.DictWriter(output, fieldnames=data[0].keys())
+    csv_writer.writeheader()
+    for row in data:
+        csv_writer.writerow(row)
+    return output.getvalue()  
+
+
+##################
 
 
 @login_manager.user_loader
@@ -584,9 +598,13 @@ def adminDetailsMonth():
     if request.method=='GET':
         return render_template('adminDetailsMonth.html', reservelist=reservelist, lastMonth_start=lastMonth_start, lastMonth_end=lastMonth_end)
     elif request.method=='POST':
-        pass
+        # 月次データをエクセル形式で出力
+        df = pd.DataFrame(reservelist)
+        filename = f'{lastMonth_start.strftime("%y%m%d")}.xlsx'
+        df.to_excel(filename, index=False, engine='openpyxl')  
+        return Response(open(filename, 'rb'), mimetype="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")  
 
-        
+
 # 管理者コンソール 利用・予約状況の全履歴の表示
 @app.route('/adminDetailsAll', methods=['GET','POST'])
 @login_required
@@ -614,15 +632,6 @@ def adminDetailsAll():
         return render_template('adminDetailsAll.html', reservelist=reservelist)
     elif request.method=='POST':
         pass
-        # データベースからデータを取得します
-        # data = query_database()
-
-        # # データをCSVファイルに変換して保存します
-        # csv_filename = "database_results.csv"
-        # data.to_csv(csv_filename, index=False)
-
-        # # ダウンロード用のレスポンスを返します
-        # return send_file(csv_filename, as_attachment=True)    
     
 
 ## おまじない

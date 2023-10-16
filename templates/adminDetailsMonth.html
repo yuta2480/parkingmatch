@@ -58,11 +58,11 @@
             </form>
 
             <nav class='buttonMenu'>
-                <form>
-                    <a href="adminTop"><input class='common_button common_fat' style='width : 42%;' type='button' value='管理者メニューにもどる' /></a>
-                    {#<a href="{{ url_for('download_csv') }}" download="database_results.csv"><button>Download CSV</button></a>#}
-                    
-                
+                <form method="GET" action="/adminTop">
+                    <button type="submit" input class='common_button common_fat' style='width : 42%;'>管理者メニューにもどる</button>
+                </form>
+                <form method="POST" action="/adminDetailsMonth">
+                    <button type="submit" input class='common_button common_fat' style='width : 42%;'>ダウンロード</button>
                 </form>
             </nav>
             
