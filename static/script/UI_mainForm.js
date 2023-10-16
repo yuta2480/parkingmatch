@@ -164,7 +164,14 @@ UI_mainForm.prototype = {
         getInoutDoor =  function(source) { return (source === '0') ? '屋外' : '屋内' };
         getMustCall =   function(source) { return (source === '0') ? '不要' : '必要' };
         getTypeNum =    function(source) { return (source === '0') ? '3ナンバー' : '5ナンバー' };
-        getTypeSize =   function(source) { return (source === '0') ? '155cm未満' : '155 ～ 170cm' };
+        getTypeSize =   function(source) {
+            switch(source) {
+                case '0':   return '155cm未満'; break;
+                case '1':   return '155 ～ 170cm'; break;
+                case '2':   return '171cm ～'; break;
+            }
+            return undefined;
+        };
         getReservable = function(stat) {
             return (stat) ? {disable : '', value : '予約する'} : {disable : 'disabled', value : 'ご希望の期間は既に予約あり'}
         };

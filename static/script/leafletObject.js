@@ -139,6 +139,7 @@ LeafletObject.prototype = {
                 if (map.marker === undefined) {
                     map.addMarker({lat : e.latlng.lat, lng : e.latlng.lng});
                     ui.formDisabledChange('js_convertButton_leaflet', false);
+                    ui.navigateMessageChange('putMarker');
                 }
                 
                 break;

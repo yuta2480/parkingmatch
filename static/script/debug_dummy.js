@@ -209,4 +209,64 @@ dummy = [
         lon: 139.3025949022063, 
         lat: 35.8785421603515
     },
+
+    {id: 15,
+        title: '駐車場名15',
+        postal_code: '3501255', 
+        address1: '埼玉県日高市', 
+        address2: '武蔵台１丁目２８−４',
+        inoutdoor: '0',              // inoutdoor (String)       0 … 屋外, 1 … 屋内
+        mustcall: '1',               // mustcall (String)        0 … 出し入れ時に連絡が不要, 1 … 出し入れ時に連絡が必要
+        usableTypeNum: '0',          // usableTypeNum (String)   0 … 3ナンバー, 1 … 5ナンバー 
+        usableSize: '2',             // usableSize (String)      0 … 155cm未満, 1 … 155 ～ 170cm, 2 … 171cm ～
+        price_day: 1400,
+        etc: '駐車場15 備考欄 ダミー inout 0, mustcall 1, typeNum 0, typeSize 2',
+        lon: 139.3027678037954,
+        lat: 35.88046468443136
+    },
+
+    {id: 16,
+        title: '駐車場名16',
+        postal_code: '3501255', 
+        address1: '埼玉県日高市', 
+        address2: '武蔵台2丁目8−6',
+        inoutdoor: '1',              // inoutdoor (String)       0 … 屋外, 1 … 屋内
+        mustcall: '0',               // mustcall (String)        0 … 出し入れ時に連絡が不要, 1 … 出し入れ時に連絡が必要
+        usableTypeNum: '1',          // usableTypeNum (String)   0 … 3ナンバー, 1 … 5ナンバー 
+        usableSize: '2',             // usableSize (String)      0 … 155cm未満, 1 … 155 ～ 170cm, 2 … 171cm ～
+        price_day: 1380,
+        etc: '駐車場16 備考欄 ダミー inout 1, mustcall 0, typeNum 1, typeSize 2',
+        lon: 139.30294968906998,
+        lat: 35.87590072128263
+    },
+
+    {id: 17,
+        title: '駐車場名17',
+        postal_code: '3501255', 
+        address1: '埼玉県日高市', 
+        address2: '武蔵台２丁目４−７',
+        inoutdoor: '0',              // inoutdoor (String)       0 … 屋外, 1 … 屋内
+        mustcall: '0',               // mustcall (String)        0 … 出し入れ時に連絡が不要, 1 … 出し入れ時に連絡が必要
+        usableTypeNum: '1',          // usableTypeNum (String)   0 … 3ナンバー, 1 … 5ナンバー 
+        usableSize: '2',             // usableSize (String)      0 … 155cm未満, 1 … 155 ～ 170cm, 2 … 171cm ～
+        price_day: 1060,
+        etc: '駐車場17 備考欄 ダミー inout 0, mustcall 0, typeNum 1, typeSize 2',
+        lon: 139.30243093328085,
+        lat: 35.87664819494122 
+    },
+
+    {id: 18,
+        title: '駐車場名18',
+        postal_code: '3501255', 
+        address1: '埼玉県日高市', 
+        address2: '武蔵台３丁目１２−１',
+        inoutdoor: '1',              // inoutdoor (String)       0 … 屋外, 1 … 屋内
+        mustcall: '1',               // mustcall (String)        0 … 出し入れ時に連絡が不要, 1 … 出し入れ時に連絡が必要
+        usableTypeNum: '1',          // usableTypeNum (String)   0 … 3ナンバー, 1 … 5ナンバー 
+        usableSize: '2',             // usableSize (String)      0 … 155cm未満, 1 … 155 ～ 170cm, 2 … 171cm ～
+        price_day: 1100,
+        etc: '駐車場18 備考欄 ダミー inout 1, mustcall 1, typeNum 1, typeSize 2',
+        lon: 139.29934003409844, 
+        lat: 35.87726123081895
+    },
 ];

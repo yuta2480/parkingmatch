@@ -41,10 +41,11 @@ UI_parkingReg.prototype = {
             document.getElementById(this.systemButtonIDs[prop]).disabled = stat;
         }
 
+        // ナビゲーションメッセージを非表示に
+        this.navigateMessageChange('allStop');
     },
 
     formDisabledChange_autoControl: function() {
-
         const status = this.collectStatus();
 
         let stat = (status.postalcode === undefined) ? true: false;
@@ -52,6 +53,19 @@ UI_parkingReg.prototype = {
 
         stat = (map.marker === undefined) ? true: false;
         this.formDisabledChange(this.systemButtonIDs.reverse, stat); 
+
+        // 住所類のフォームのdisabledを解除する
+        this.formDisabledCheck(false);
+    },
+    formDisabledCheck: function(stat) {
+        targetIDs = ['input_address1'];
+
+        for (let ID of targetIDs) {
+            this.formDisabledChange(ID, stat);
+
+            color = (stat) ? 'rgb(215, 215, 215)': 'transparent';
+            document.getElementById(ID).style.backgroundColor = color;
+        }
 
     },
 
@@ -100,6 +114,25 @@ UI_parkingReg.prototype = {
         document.getElementById('secretParam_lon').value = coordinate.lng;
     },
 
+
+    /* ----- DOM操作・ナビゲーションの調整 ----- */
+    navigateMessageChange: function(stat) {
+        switch(stat) {
+            case 'putMarker':   // leafletをクリックしてマーカーを設置した際に通過（呼び出し元：leafletObject.js）
+                document.getElementById('message1').style.animationIterationCount = 1;
+                document.getElementById('message2').style.animationIterationCount = 'infinite';
+                break;
+            case 'allStop':
+            default:
+                // 現状、allStop（＝全停止）とdefaultは同一。アニメーションカウントがループ指定になっているものを「1」に変更することで停止処理させる
+                targets = ['message1', 'message2'];
+                for (let target of targets) {
+                    dom = document.getElementById(target);
+                    if (dom.style.animationIterationCount == 'infinite') dom.style.animationIterationCount = 1;
+                }
+        }
+
+    },
 
 
     /* ----- SYSTEM ----- ----- ----- --- ----- ----- ----- */

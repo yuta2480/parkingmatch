@@ -1,10 +1,10 @@
 let decorder = function(job, source) {
     this.job = job;
 
-    console.log('> NORMAL ', source);
+    // console.log('> NORMAL ', source);
     this.source = (job === 'postalcode') ? JSON.parse(source.responseText): this.XMLparse(source);
 
-    console.log(this.source);
+    // console.log(this.source);
     this.package = (this.source === undefined) ? undefined : this.setPackage();
 
 };
@@ -16,7 +16,6 @@ decorder.prototype = {
         // 1. 共通工程（responseXML.documentElement.outerHTMLをXMLデータに変換する）
         const parser = new DOMParser();
         let common_xmlData = parser.parseFromString(_source.responseXML.documentElement.outerHTML, 'text/xml');
-        console.log('common_xmlData ', common_xmlData);
 
         // 2. 1.の内容から個別対応を行う
         let xmlData = undefined;
@@ -31,15 +30,15 @@ decorder.prototype = {
         let places = xmlData.getElementsByClassName('place');
 
         // debug ---
-        console.log('■ places : ', places);
+        /*console.log('■ places : ', places);
         console.log('■ places length : ', places.length);
-        if (places.length > 1) console.log('【DEBUG】複数あり。。。');
+        if (places.length > 1) console.log('【DEBUG】複数あり。。。');*/
         // debug ---
-
+ 
         if (places.length === 0) return undefined;
 
-        console.log(places[0].attributes);
-        console.log(places[0].attributes.lat.textContent);
+        /*console.log(places[0].attributes);
+        console.log(places[0].attributes.lat.textContent);*/
 
         return places[0].attributes;
     },
@@ -48,8 +47,8 @@ decorder.prototype = {
 
         // job 座標によってaddressPartsが複数ないか要確認
         let addressParts = xmlData.getElementsByTagName('addressparts');
-        console.log('addressP', addressParts);
-        console.log('addressP length', addressParts.length);
+        /*console.log('addressP', addressParts);
+        console.log('addressP length', addressParts.length);*/
 
         return parser.parseFromString(addressParts[0].outerHTML, 'text/xml');
     },
@@ -85,7 +84,7 @@ decorder.prototype = {
                 break;
         }
 
-        console.log('package :: ', package);
+        //console.log('package :: ', package);
         return package;
     },
 

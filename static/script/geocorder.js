@@ -19,7 +19,7 @@ let geocorder = function() {
         console.log('server readyState', this.body.readyState);*/
 
         if (this.body.readyState == 4 && this.body.status == 200) {
-            console.log('this.body :: ', this.body);
+            // console.log('this.body :: ', this.body);
             this.param.callback(this.param.job, this.body);
         } else if (this.body.readyState == 4) {
             alert('先方のサーバーが応答しませんでした。恐れ入りますが1分程待ってから、再度、ボタンを押下してください。');
@@ -67,7 +67,7 @@ geocorder.prototype = {
     },
     getGeoQuery_normal: function() {
 
-        console.log('>> QUERY_NORMAL', this.param.package);
+        // console.log('>> QUERY_NORMAL', this.param.package);
 
         const createQueryNormal = function(P) {
             let result = '', flag = false;

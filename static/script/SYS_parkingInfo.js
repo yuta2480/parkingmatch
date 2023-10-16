@@ -61,7 +61,8 @@ parkingInfo.prototype = {
 
             let judgementMaterials = {
                 usableTypeNum : (R.usableTypeNum === D.usableTypeNum || R.usableTypeNum === 'all'),
-                usableSize :    (R.usableSize === D.usableSize || R.usableSize === 'all'),
+                //usableSize :    (R.usableSize === D.usableSize || R.usableSize === 'all'),
+                usableSize :    this.plotStatusUpdate_usableSizeCheck(R.usableSize, D),
                 
                 // 今回は「武蔵台」の住所のみのため、addressでの検索機能は排除し、無条件でtrueとする。
                 //address :       this.plotStatusUpdate_addressCheck(R.address, D),   
@@ -87,6 +88,9 @@ parkingInfo.prototype = {
             if (!JM[material]) return false;
         }
         return true;
+    },
+    plotStatusUpdate_usableSizeCheck: function(size, item) {
+        return (size === 'all' || parseInt(item.usableSize, 10) <= parseInt(size, 10)) ? true : false;
     },
     /*plotStatusUpdate_addressCheck: function(address, item) {  // 今回は「武蔵台」の住所のみのため、addressでの検索機能は排除
         for (let prop in address.value) {
@@ -133,18 +137,17 @@ parkingInfo.prototype = {
         return (source.value === '1. 5ナンバー') ? '1' : 'all';
     },
     arrangementFilter_usableSize: function(source) {
-        /*
+        // debug 20231011
+        // 「155 ～ 170cm」は「155cm未満」も含むようにする
+        // 「171cm ～」は「155 ～ 170cm」「155cm未満」も含むようにする
         switch(source.value) {
             case '1. 155cm未満':        return '0'; break;
             case '2. 155 ～ 170cm':     return '1'; break;
+            case '3. 171cm ～':         return 'all'; break;
             default: return 'all';
         }
         return undefined;
-        */
 
-        // debug 20230619
-        // 「155 ～ 170cm」は「155cm未満」も含むようにする
-        return (source.value === '1. 155cm未満') ? '0' : 'all';        
     },
     /*arrangementFilter_address: function(param) {  // 今回は「武蔵台」の住所のみのため、addressでの検索機能は排除
         console.log('param : ', param);
