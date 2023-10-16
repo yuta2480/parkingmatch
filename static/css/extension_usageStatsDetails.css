@@ -1,0 +1,11 @@
+/* overwrite (common.css) ----- ----- ----- */
+
+
+/* extension styles (for confirm pop up.)----- ----- ----- */
+#dummyButton {
+    display : inline;
+}
+
+#mainButton {
+    display : none;
+}
