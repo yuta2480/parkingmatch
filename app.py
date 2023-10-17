@@ -183,12 +183,14 @@ def backup_database():
 ##################
 
 
+# ログインの管理
 @login_manager.user_loader
 def load_user(user_id):
     print(f'ID>>>{user_id}')
     return User.query.get(int(user_id))
 
 
+# 一般ログイン画面
 @app.route('/')
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -211,6 +213,7 @@ def login():
         return render_template('login.html')
 
 
+# 一般ログアウト
 @app.route('/logout')
 @login_required
 def logout():
@@ -218,6 +221,7 @@ def logout():
     return redirect('/login')
 
 
+# ユーザ登録画面
 @app.route('/userRegistration', methods=['GET', 'POST'])
 def userRegistration():
     if request.method == 'POST':
@@ -266,11 +270,13 @@ def userRegistration():
         return render_template('userRegistration.html')
 
 
+# ユーザ登録完了画面
 @app.route('/registrationComplete', methods=['GET','POST'])
 def registrationComplete():
     return render_template('registrationComplete.html')
 
 
+# メインフォーム画面
 @app.route('/mainForm', methods=['GET','POST'])
 @login_required
 def mainForm():
@@ -303,6 +309,7 @@ def mainForm():
         return render_template('mainForm.html', parklist=parklist, reservelist=reservelist,user=user)
         
 
+# 一般ユーザ　情報変更画面
 @app.route('/settingChange', methods=['GET','POST'])
 @login_required
 def settingChange():
@@ -356,6 +363,7 @@ def settingChange():
         return render_template('settingChange.html', user=user)
 
 
+# 一般ユーザ　情報変更完了画面
 @app.route('/settingChangeComplete', methods=['GET','POST'])
 @login_required
 def settingChangeComplete():
@@ -366,6 +374,7 @@ def settingChangeComplete():
         return render_template('mainForm.html')
 
 
+# 一般ユーザ　予約一覧画面
 @app.route('/usageStats', methods=['GET','POST'])
 @login_required
 def usageStats():
@@ -408,6 +417,7 @@ def usageStats():
         pass
 
 
+# 駐車場オーナー　情報登録画面
 @app.route('/parkingRegistration', methods=['GET','POST'])
 @login_required
 def parkingRegistration():
@@ -474,6 +484,8 @@ def parkingRegistration():
             parking = Parking(max_day=31, price_day=0, etc='', tel=user.tel)
             return render_template('parkingRegistration.html', parking=parking)
 
+
+# 一般ユーザ　予約詳細画面
 @app.route('/usageStatsDetails', methods=['GET','POST'])
 @app.route('/usageStatsDetails/<reserve_id>')
 @login_required
@@ -487,6 +499,7 @@ def usageStatsDetails(reserve_id=None):
         return render_template('usageStatsDetails.html', reserve=reserve.toDict(), parking=parking.toDict())
 
 
+# 一般ユーザ　予約削除機能
 @app.route('/deleteReserve', methods=['GET','POST'])
 @app.route('/deleteReserve/<reserve_id>')
 @login_required
@@ -502,12 +515,7 @@ def deleteReserve(reserve_id=None):
         return redirect('/usageStats')
 
 
-@app.route('/applicationComplete', methods=['GET','POST'])
-@login_required
-def applicationComplete():
-    return render_template('applicationComplete.html')
-
-
+# 一般ユーザ　駐車場予約　確認画面
 @app.route('/confirmationOfApplicationDetails', methods=['GET','POST'])
 @login_required
 def confirmationOfApplicationDetails():
@@ -533,13 +541,21 @@ def confirmationOfApplicationDetails():
         return render_template('confirmationOfApplicationDetails.html')
 
 
+# 一般ユーザ　駐車場予約　完了画面
+@app.route('/applicationComplete', methods=['GET','POST'])
+@login_required
+def applicationComplete():
+    return render_template('applicationComplete.html')
+
+
+# 一般ユーザ　駐車場予約　メール送信完了画面
 @app.route('/mailSend', methods=['GET','POST'])
 @login_required
 def mailSend():
     return render_template('mailSend.html')
 
 
-### 管理者コンソール（仮）###
+######### 管理者コンソール（仮）#########
 
 # 管理者コンソールログイン
 @app.route('/loginAdmin', methods=['GET', 'POST'])
@@ -562,17 +578,6 @@ def loginAdmin():
     elif request.method == 'GET':
         return render_template('loginAdmin.html')
 
-
-# 管理者コンソールDBバックアップ
-@app.route('/adminDBbuckup', methods=['GET','POST'])
-@login_required
-def adminDBbuckup():
-    if request.method=='GET':
-        return render_template('adminDBbuckup.html')
-    elif request.method=='POST':
-        backup_database()
-        return render_template('adminDBbuckup.html', message='DBをバックアップしました。')
-    
 
 # 管理者コンソールトップ
 @app.route('/adminTop', methods=['GET','POST'])
@@ -661,6 +666,17 @@ def adminDetailsAll():
         return render_template('adminDetailsAll.html', reservelist=reservelist)
     elif request.method=='POST':
         pass
+    
+
+# 管理者コンソール　DBバックアップ
+@app.route('/adminDBbuckup', methods=['GET','POST'])
+@login_required
+def adminDBbuckup():
+    if request.method=='GET':
+        return render_template('adminDBbuckup.html')
+    elif request.method=='POST':
+        backup_database()
+        return render_template('adminDBbuckup.html', message='DBをバックアップしました。')
     
 
 ## おまじない
