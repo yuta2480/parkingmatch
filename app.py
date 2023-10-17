@@ -8,6 +8,8 @@ from flask import Flask, render_template, request, redirect, url_for, session, R
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin, LoginManager, login_user, current_user, logout_user, login_required
 from werkzeug.security import generate_password_hash, check_password_hash
+import sqlite3
+import shutil
 import os
 from datetime import datetime, timedelta
 import pytz
@@ -153,13 +155,29 @@ class Reserve(db.Model):
 
 ###### 関数 ######
 
-def export_dict_to_csv(data):
-    output = StringIO()
-    csv_writer = csv.DictWriter(output, fieldnames=data[0].keys())
-    csv_writer.writeheader()
-    for row in data:
-        csv_writer.writerow(row)
-    return output.getvalue()  
+# DBのバックアップを実施
+def backup_database():
+    timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
+    backup_filename = f"backup_{timestamp}.sqlite"
+    backup_path = os.path.join('buckup', backup_filename)
+
+    # データベースファイルをバックアップ
+    pathDB = 'instance/user.db'
+    connection = sqlite3.connect(pathDB)
+    with connection:
+        shutil.copy2(pathDB, backup_path)
+    connection.close()
+
+    print(f"バックアップ作成: {backup_filename}")
+
+# # 月次データの出力
+# def export_dict_to_csv(data):
+#     output = StringIO()
+#     csv_writer = csv.DictWriter(output, fieldnames=data[0].keys())
+#     csv_writer.writeheader()
+#     for row in data:
+#         csv_writer.writerow(row)
+#     return output.getvalue()  
 
 
 ##################
@@ -544,6 +562,17 @@ def loginAdmin():
     elif request.method == 'GET':
         return render_template('loginAdmin.html')
 
+
+# 管理者コンソールDBバックアップ
+@app.route('/adminDBbuckup', methods=['GET','POST'])
+@login_required
+def adminDBbuckup():
+    if request.method=='GET':
+        return render_template('adminDBbuckup.html')
+    elif request.method=='POST':
+        backup_database()
+        return render_template('adminDBbuckup.html', message='DBをバックアップしました。')
+    
 
 # 管理者コンソールトップ
 @app.route('/adminTop', methods=['GET','POST'])

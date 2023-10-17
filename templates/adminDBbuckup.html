@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta charset='utf-8' />
+
+    <!-- 以下の内容は上長に確認してから本決定する -->
+    <title>管理者専用DBバックアップ - 駐車場ニーズマッチング支援PF</title>
+    <meta name='description' content='ページの概要を100文字前後（最大200文字程度）' />
+    <meta name='keywords' content='検索エンジンに提供するキーワードをカンマ区切りで入力' />
+    <meta name='author' content='ページの作者を入力する' />
+
+    <link rel='stylesheet' href='../static/css/centerBox.css' />
+    <link rel='stylesheet' href='../static/css/common.css' />
+
+</head>
+<body>
+    <article class='container'>
+        <section class='box_contents'>  <!-- 幅、グリッド組の微調整をextension_.cssで行う -->
+            <h1>管理者専用DBバックアップ</h1>
+            <h1>{{message}}</h1>
+            <form method="POST" action="/adminDBbuckup">
+                <a href="adminTop"><input class='common_button common_fat' style='width : 42%;' type='button' value='トップに戻る' /></a>
+                <button type="submit" input class='common_button common_fat' style='width : 42%;'>DBバックアップ</button>
+            </form>
+    </section>
+    </article>
+</body>
+
+</html>
