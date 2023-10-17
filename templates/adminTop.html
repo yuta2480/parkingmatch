@@ -18,12 +18,13 @@
     <article class='container'>
         <section class='box_contents'>  <!-- 幅、グリッド組の微調整をextension_.cssで行う -->
             <h1>管理者メニュー</h1>
-            <form>
-                <a href="adminDetailsAll"><input class='common_button common_fat' style='width : 42%;' type='button' value='予約・利用状況全体' /></a>
-                <a href="adminDetailsMonth"><input class='common_button common_fat' style='width : 42%;' type='button' value='月次情報の確認' /></a>
-                <a href="adminDBbuckup"><input class='common_button common_fat' style='width : 42%;' type='button' value='DBバックアップ' /></a>
-                <a href="login"><input class='common_button common_fat' style='width : 42%;' type='button' value='トップに戻る' /></a>
+            <p><a href="adminDetailsAll"><input class='common_button_admin_submit common_fat' style='width : 42%;' type='button' value='予約・利用状況全体' /></a></p>
+            <p><a href="adminDetailsMonth"><input class='common_button_admin_submit common_fat' style='width : 42%;' type='button' value='月次情報の確認' /></a></p>
+            <form method="POST" action="/adminTop">
+                <p><button type="submit" input class='common_button_admin_submit common_fat' style='width : 42%;'>DBバックアップ</button></p>
             </form>
+            <p><a href="login"><input class='common_cancel common_fat' style='width : 42%;' type='button' value='トップに戻る' /></a></p>
+            <h2>{{message}}</h2>
         </section>
     </article>
 </body>

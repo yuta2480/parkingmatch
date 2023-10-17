@@ -584,9 +584,10 @@ def loginAdmin():
 @login_required
 def adminTop():
     if request.method=='GET':
-        return render_template('adminTop.html')
+        return render_template('adminTop.html', message='')
     elif request.method=='POST':
-        pass
+        backup_database()
+        return render_template('adminTop.html', message='DBをバックアップしました。')
 
 
 # 管理者コンソール 月次の利用履歴の表示と出力
@@ -668,15 +669,15 @@ def adminDetailsAll():
         pass
     
 
-# 管理者コンソール　DBバックアップ
-@app.route('/adminDBbuckup', methods=['GET','POST'])
-@login_required
-def adminDBbuckup():
-    if request.method=='GET':
-        return render_template('adminDBbuckup.html')
-    elif request.method=='POST':
-        backup_database()
-        return render_template('adminDBbuckup.html', message='DBをバックアップしました。')
+# # 管理者コンソール　DBバックアップ
+# @app.route('/adminDBbuckup', methods=['GET','POST'])
+# @login_required
+# def adminDBbuckup():
+#     if request.method=='GET':
+#         return render_template('adminDBbuckup.html')
+#     elif request.method=='POST':
+#         backup_database()
+#         return render_template('adminDBbuckup.html', message='DBをバックアップしました。')
     
 
 ## おまじない

@@ -23,7 +23,7 @@
 
     <article class='container'>
         <section class='box_contents'>  <!-- 幅、グリッド組の微調整をextension_.cssで行う -->
-            <h1>ご利用状況</h1>
+            <h1>ご利用・予約状況一覧</h1>
 
             <form>
                 <table id="tablesorter">
@@ -55,17 +55,11 @@
                     </tbody>
                 </table>
             </form>
-
             <nav class='buttonMenu'>
                 <form>
-                    <a href="adminTop"><input class='common_button common_fat' style='width : 42%;' type='button' value='管理者メニューにもどる' /></a>
-                    {#<a href="{{ url_for('download_csv') }}" download="database_results.csv"><button>Download CSV</button></a>#}
-                    
-                
+                    <a href="adminTop"><input class='common_cancel common_fat' style='width : 42%;' type='button' value='管理者メニューにもどる' /></a>
                 </form>
             </nav>
-            
-
         </section>
     </article>
     <script>

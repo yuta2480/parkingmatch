@@ -22,8 +22,7 @@
 
     <article class='container'>
         <section class='box'>
-            <h1>駐車場ニーズマッチング支援PF</h1>
-            <h2>管理者ログイン画面</h2>
+            <h1>管理者ログイン画面</h1>
 
             <form method="POST" action="{{ url_for('loginAdmin') }}">
                 <div class='inner'>
@@ -37,9 +36,10 @@
                 </div>
 
                 <nav class='buttonMenu'>
-                    <p><input class='common_button' style='width : 32%;' type='submit' value='ログイン' /></p>
+                    <p><input class='common_button_admin_submit' style='width : 32%;' type='submit' value='ログイン' /></p>
                 </nav>
             </form>
+            <p><a href="login"><input class='common_cancel' style='width : 32%;' type='submit' value='トップに戻る' /></a></p>
         </section>
     </article>
 
