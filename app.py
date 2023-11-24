@@ -635,6 +635,11 @@ def adminDetailsMonth():
     elif request.method=='POST':
         # 月次データをエクセル形式で出力
         df = pd.DataFrame(reservelist)
+        df = df[[
+            'email','last_name','first_name',
+            'postal_code','address1', 'address2', 'tel',
+            'title','resv_at','use_start','use_end','use_days'
+            ]]
         filename = f'DL/{lastMonth_start.strftime("%y%m%d")}.xlsx'
         df.to_excel(filename, index=False, engine='openpyxl')  
         return Response(open(filename, 'rb'), mimetype="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")  
