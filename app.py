@@ -7,6 +7,7 @@ Created on Tue Oct  5 11:34:40 2021
 from flask import Flask, render_template, request, redirect, url_for, session, Response
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin, LoginManager, login_user, current_user, logout_user, login_required
+import logging
 from werkzeug.security import generate_password_hash, check_password_hash
 import sqlite3
 import shutil
@@ -23,6 +24,7 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///user.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = os.urandom(24)
+logging.basicConfig(filename='log/exchange.log', level=logging.INFO)
 db = SQLAlchemy(app)
 
 app.permanent_session_lifetime = timedelta(minutes=10) 
@@ -170,15 +172,6 @@ def backup_database():
 
     print(f"バックアップ作成: {backup_filename}")
 
-# # 月次データの出力
-# def export_dict_to_csv(data):
-#     output = StringIO()
-#     csv_writer = csv.DictWriter(output, fieldnames=data[0].keys())
-#     csv_writer.writeheader()
-#     for row in data:
-#         csv_writer.writerow(row)
-#     return output.getvalue()  
-
 
 ##################
 
@@ -264,6 +257,7 @@ def userRegistration():
         db.session.add(new_user)
         db.session.commit()
 
+        app.logger.info(f'create User: {new_user.toDict()}')
         # 登録完了後の処理
         return redirect(url_for('registrationComplete'))
     else:
@@ -287,12 +281,13 @@ def mainForm():
 
         # 駐車場DBからデータを転送
         parking = Parking.query.filter_by(id=park_id).first().toDict()
+        app.logger.info(f'userID:{current_user.id} to selected {parking},{use_start}-{use_end}')
         return render_template('confirmationOfApplicationDetails.html', 
                                parking=parking, 
                                use_start=use_start, 
                                use_end=use_end
                                )
-    else:
+    elif request.method=='GET':
         # 駐車場DBからデータを転送
         user = User.query.filter_by(id=current_user.id).first()
         parkings = Parking.query.all()
@@ -339,6 +334,7 @@ def settingChange():
         # user = User.query.filter_by(email=email).first()
         # if user:
         #     return render_template('settingChange.html', error='Email address already registered')
+        app.logger.info(f'settingChange from {user.toDict()}')
 
         user.email=email
         # user.password=generate_password_hash(password, method='sha256')
@@ -357,9 +353,12 @@ def settingChange():
         db.session.add(user)
         db.session.commit()
 
+        app.logger.info(f'settingChange to {user.toDict()}')
+
         # 登録完了後の処理
         return render_template('settingChange.html', user=user, error='登録変更完了')
-    else:
+    
+    elif request.method == 'GET':
         return render_template('settingChange.html', user=user)
 
 
@@ -367,7 +366,7 @@ def settingChange():
 @app.route('/settingChangeComplete', methods=['GET','POST'])
 @login_required
 def settingChangeComplete():
-    user = User.query.filter_by(id=current_user.id).first()
+    # user = User.query.filter_by(id=current_user.id).first()
     if request.method=='POST':
         return render_template('mainForm.html')
     else:
@@ -427,11 +426,14 @@ def parkingRegistration():
     if request.method=='POST':
         # 駐車場情報の更新の場合
         if parking:
+            app.logger.info(f'parkingChange from {parking.toDict()}')
+
             ### POSTのFormから変更を反映
             if request.form.get('mustcall')=='on':
                 parking.mustcall = '1'
             else:
                 parking.mustcall = '0'
+            parking.title = current_user.last_name+'邸駐車場'
             parking.postal_code     = request.form.get('postal_code')
             parking.address1        = request.form.get('address1')
             parking.address2        = request.form.get('address2')
@@ -445,6 +447,9 @@ def parkingRegistration():
             parking.lon             = float(request.form.get('lon'))
             parking.lat             = float(request.form.get('lat'))
             parking.owner_id        = current_user.id
+
+            app.logger.info(f'parkingChange to   {parking.toDict()}')
+
 
         # 駐車場情報の新規登録の場合
         else:
@@ -470,6 +475,8 @@ def parkingRegistration():
                 lat             = float(request.form.get('lat')),
                 owner_id        = current_user.id
             )
+            app.logger.info(f'parkingCreate to {parking.toDict()}')
+
         # 駐車場DBの更新
         db.session.add(parking)
         db.session.commit()
@@ -511,6 +518,7 @@ def deleteReserve(reserve_id=None):
         reserve = Reserve.query.filter_by(id=reserve_id).first()
         db.session.delete(reserve)
         db.session.commit()
+        app.logger.info(f'deleteReserve from {reserve.toDict()}')
 
         return redirect('/usageStats')
 
@@ -535,6 +543,7 @@ def confirmationOfApplicationDetails():
         # 予約DBにすでに予約されている期間であるかどうかを確認し、予約DBへ新規登録する
         db.session.add(new_reserve)
         db.session.commit()
+        app.logger.info(f'confirmationOfApplicationDetails to {new_reserve.toDict()}')
         return render_template('applicationComplete.html')
     else:
         pass
@@ -680,19 +689,12 @@ def adminDetailsAll():
         pass
     
 
-# # 管理者コンソール　DBバックアップ
-# @app.route('/adminDBbuckup', methods=['GET','POST'])
-# @login_required
-# def adminDBbuckup():
-#     if request.method=='GET':
-#         return render_template('adminDBbuckup.html')
-#     elif request.method=='POST':
-#         backup_database()
-#         return render_template('adminDBbuckup.html', message='DBをバックアップしました。')
-    
+# リクエストのロギング
+@app.before_request
+def logging_request():
+    app.logger.info("before request")    
 
 ## おまじない
 if __name__ == "__main__":
     # app.run(debug=True, host='192.168.1.111', port=1919)
     app.run(debug=False, threaded=False)
-    
