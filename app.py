@@ -632,32 +632,55 @@ def adminDetailsMonth():
             reserve['use_start'] = lastMonth_start
         if reserve['use_end'] > lastMonth_end:
             reserve['use_end'] = lastMonth_end
+
         data = {}
         data.update(user)
+
         # 重複するキーにサフィックスを与える（parkingのaddress,postalcode,telに'_P'を付与）
-        parking['address1_P'] = parking.pop('address1')
-        parking['address2_P'] = parking.pop('address2')
-        parking['postal_code_P'] = parking.pop('postal_code')
-        parking['tel_P'] = parking.pop('tel')
-        data.update(parking)
-        data.update(reserve)
+        data['title'] = parking.pop('title')
+        data['address1_Park'] = parking.pop('address1')
+        data['address2_Park'] = parking.pop('address2')
+        data['postal_code_Park'] = parking.pop('postal_code')
+        data['tel_Park'] = parking.pop('tel')
+
+        # 重複するキーにサフィックスを与える（ownerのaddress,postalcode,tel,first_name, last_nameに'_owner'を付与）
+        owner = User.query.filter_by(id=parking['owner_id']).first().toDict()
+        data['owner_id'] = owner.pop('id')
+        data['first_name_owner'] = owner.pop('first_name')
+        data['last_name_owner'] = owner.pop('last_name')
+        data['postal_code_owner'] = owner.pop('postal_code')
+        data['address1_owner'] = owner.pop('address1')
+        data['address2_owner'] = owner.pop('address2')
+        data['tel_owner'] = owner.pop('tel')
+
+        # 利用日数を設定
         data.update({'use_days':(reserve['use_end']-reserve['use_start']).days + 1}) # 利用日数の算出
+
+        # 重複するキーにサフィックスを与える（reserveのidに'reserve_'を付与）
+        reserve['reserve_id'] = reserve.pop('id')
+        data.update(reserve)
+        
         reservelist.append(data)
 
     if request.method=='GET':
         return render_template('adminDetailsMonth.html', reservelist=reservelist, lastMonth_start=lastMonth_start, lastMonth_end=lastMonth_end)
     elif request.method=='POST':
-        # 月次データをエクセル形式で出力
-        df = pd.DataFrame(reservelist)
-        df = df[[
-            'email','last_name','first_name',
-            'postal_code','address1', 'address2', 'tel',
-            'title','resv_at','use_start','use_end','use_days',
-            'user_id', 'owner_id', 'park_id', 'resv_status'
-            ]]
-        filename = f'DL/{lastMonth_start.strftime("%y%m%d")}.xlsx'
-        df.to_excel(filename, index=False, engine='openpyxl')  
-        return Response(open(filename, 'rb'), mimetype="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")  
+        if data:
+            # 月次データをエクセル形式で出力
+            df = pd.DataFrame(reservelist)
+            df = df[[
+                'email','last_name','first_name',
+                'postal_code','address1', 'address2', 'tel',
+                'title', 'postal_code_Park', 'address1_Park', 'address2_Park', 'tel_Park',
+                'first_name_owner','last_name_owner','postal_code_owner','address1_owner','address2_owner','tel_owner',
+                'resv_at','use_start','use_end','use_days',
+                'user_id', 'owner_id', 'park_id', 'resv_status'
+                ]]
+            filename = f'DL/{lastMonth_start.strftime("%y%m%d")}.xlsx'
+            df.to_excel(filename, index=False, engine='openpyxl')  
+            return Response(open(filename, 'rb'), mimetype="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")  
+        else:
+            pass            
 
 
 # 管理者コンソール 利用・予約状況の全履歴の表示

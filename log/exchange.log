@@ -1,0 +1,554 @@
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:12:07] "GET / HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:12:07] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:12:07] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:12:08] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:12:10] "GET /loginAdmin HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:12:10] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:12:10] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:12:11] "[32mPOST /loginAdmin HTTP/1.1[0m" 302 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:12:11] "GET /adminTop HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:12:11] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:12:11] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:12:12] "GET /adminDetailsMonth HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:12:12] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:12:12] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+ERROR:app:Exception on /adminDetailsMonth [POST]
+Traceback (most recent call last):
+  File "c:\workspace\_GIFlaskApp\_parkmatching\env37\lib\site-packages\flask\app.py", line 2529, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\workspace\_GIFlaskApp\_parkmatching\env37\lib\site-packages\flask\app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\workspace\_GIFlaskApp\_parkmatching\env37\lib\site-packages\flask\app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\workspace\_GIFlaskApp\_parkmatching\env37\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "c:\workspace\_GIFlaskApp\_parkmatching\env37\lib\site-packages\flask_login\utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+  File "c:\workspace\_GIFlaskApp\_parkmatching\app.py", line 660, in adminDetailsMonth
+    'user_id', 'owner_id', 'park_id', 'resv_status'
+  File "c:\workspace\_GIFlaskApp\_parkmatching\env37\lib\site-packages\pandas\core\frame.py", line 3464, in __getitem__
+    indexer = self.loc._get_listlike_indexer(key, axis=1)[1]
+  File "c:\workspace\_GIFlaskApp\_parkmatching\env37\lib\site-packages\pandas\core\indexing.py", line 1314, in _get_listlike_indexer
+    self._validate_read_indexer(keyarr, indexer, axis)
+  File "c:\workspace\_GIFlaskApp\_parkmatching\env37\lib\site-packages\pandas\core\indexing.py", line 1374, in _validate_read_indexer
+    raise KeyError(f"None of [{key}] are in the [{axis_name}]")
+KeyError: "None of [Index(['email', 'last_name', 'first_name', 'postal_code', 'address1',\n       'address2', 'tel', 'title', 'postal_code_P', 'address1_P', 'address2_P',\n       'tel_P', 'resv_at', 'use_start', 'use_end', 'use_days', 'user_id',\n       'owner_id', 'park_id', 'resv_status'],\n      dtype='object')] are in the [columns]"
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:12:14] "[35m[1mPOST /adminDetailsMonth HTTP/1.1[0m" 500 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:12:34] "GET /adminTop HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:12:34] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:12:34] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:12:35] "GET /adminDetailsAll HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:12:35] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:12:35] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:12:37] "GET /adminTop HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:12:37] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:12:37] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:12:39] "GET /adminDetailsMonth HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:12:39] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:12:39] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:13:06] "GET /adminTop HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:13:06] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:13:06] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:13:08] "POST /adminTop HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:13:08] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:13:08] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:14:56] "GET / HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:14:57] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:14:57] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:14:57] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:14:58] "GET /loginAdmin HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:14:58] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:14:58] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:14:59] "[32mPOST /loginAdmin HTTP/1.1[0m" 302 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:14:59] "GET /adminTop HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:14:59] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:14:59] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+ERROR:app:Exception on /adminDetailsMonth [GET]
+Traceback (most recent call last):
+  File "c:\workspace\_GIFlaskApp\_parkmatching\env37\lib\site-packages\flask\app.py", line 2529, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\workspace\_GIFlaskApp\_parkmatching\env37\lib\site-packages\flask\app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\workspace\_GIFlaskApp\_parkmatching\env37\lib\site-packages\flask\app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\workspace\_GIFlaskApp\_parkmatching\env37\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "c:\workspace\_GIFlaskApp\_parkmatching\env37\lib\site-packages\flask_login\utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+  File "c:\workspace\_GIFlaskApp\_parkmatching\app.py", line 645, in adminDetailsMonth
+    print({'owner':users[data.owner_id]})
+AttributeError: 'dict' object has no attribute 'owner_id'
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:15:12] "[35m[1mGET /adminDetailsMonth HTTP/1.1[0m" 500 -
+INFO:app:before request
+ERROR:app:Exception on /adminDetailsMonth [GET]
+Traceback (most recent call last):
+  File "c:\workspace\_GIFlaskApp\_parkmatching\env37\lib\site-packages\flask\app.py", line 2529, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\workspace\_GIFlaskApp\_parkmatching\env37\lib\site-packages\flask\app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\workspace\_GIFlaskApp\_parkmatching\env37\lib\site-packages\flask\app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\workspace\_GIFlaskApp\_parkmatching\env37\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "c:\workspace\_GIFlaskApp\_parkmatching\env37\lib\site-packages\flask_login\utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+  File "c:\workspace\_GIFlaskApp\_parkmatching\app.py", line 645, in adminDetailsMonth
+    print({'owner':users[data.owner_id]})
+AttributeError: 'dict' object has no attribute 'owner_id'
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:18:35] "[35m[1mGET /adminDetailsMonth HTTP/1.1[0m" 500 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:18:54] "GET / HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:18:54] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:18:54] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:18:56] "GET /loginAdmin HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:18:56] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:18:56] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:18:57] "[32mPOST /loginAdmin HTTP/1.1[0m" 302 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:18:57] "GET /adminTop HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:18:57] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:18:57] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:22:49] "GET / HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:22:49] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:22:49] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:22:50] "GET /loginAdmin HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:22:50] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:22:50] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:22:51] "[32mPOST /loginAdmin HTTP/1.1[0m" 302 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:22:52] "GET /adminTop HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:22:52] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:22:52] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+ERROR:app:Exception on /adminDetailsMonth [GET]
+Traceback (most recent call last):
+  File "c:\workspace\_GIFlaskApp\_parkmatching\env37\lib\site-packages\flask\app.py", line 2529, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\workspace\_GIFlaskApp\_parkmatching\env37\lib\site-packages\flask\app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\workspace\_GIFlaskApp\_parkmatching\env37\lib\site-packages\flask\app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\workspace\_GIFlaskApp\_parkmatching\env37\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "c:\workspace\_GIFlaskApp\_parkmatching\env37\lib\site-packages\flask_login\utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+  File "c:\workspace\_GIFlaskApp\_parkmatching\app.py", line 645, in adminDetailsMonth
+    [owner]=[user for user in users if user[data['owner_id']]]
+  File "c:\workspace\_GIFlaskApp\_parkmatching\app.py", line 645, in <listcomp>
+    [owner]=[user for user in users if user[data['owner_id']]]
+TypeError: 'User' object is not subscriptable
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:22:52] "[35m[1mGET /adminDetailsMonth HTTP/1.1[0m" 500 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:23:16] "GET / HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:23:16] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:23:16] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:23:18] "GET /loginAdmin HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:23:18] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:23:18] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:23:19] "[32mPOST /loginAdmin HTTP/1.1[0m" 302 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:23:19] "GET /adminTop HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:23:19] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:23:19] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+ERROR:app:Exception on /adminDetailsMonth [GET]
+Traceback (most recent call last):
+  File "c:\workspace\_GIFlaskApp\_parkmatching\env37\lib\site-packages\flask\app.py", line 2529, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\workspace\_GIFlaskApp\_parkmatching\env37\lib\site-packages\flask\app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\workspace\_GIFlaskApp\_parkmatching\env37\lib\site-packages\flask\app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\workspace\_GIFlaskApp\_parkmatching\env37\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "c:\workspace\_GIFlaskApp\_parkmatching\env37\lib\site-packages\flask_login\utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+  File "c:\workspace\_GIFlaskApp\_parkmatching\app.py", line 645, in adminDetailsMonth
+    [owner]=[user for user in users if user[data['owner_id']]]
+  File "c:\workspace\_GIFlaskApp\_parkmatching\app.py", line 645, in <listcomp>
+    [owner]=[user for user in users if user[data['owner_id']]]
+TypeError: 'User' object is not subscriptable
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:23:29] "[35m[1mGET /adminDetailsMonth HTTP/1.1[0m" 500 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:24:14] "GET / HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:24:14] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:24:14] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:24:15] "GET /loginAdmin HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:24:15] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:24:16] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:24:16] "[32mPOST /loginAdmin HTTP/1.1[0m" 302 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:24:16] "GET /adminTop HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:24:16] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:24:16] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+ERROR:app:Exception on /adminDetailsMonth [GET]
+Traceback (most recent call last):
+  File "c:\workspace\_GIFlaskApp\_parkmatching\env37\lib\site-packages\flask\app.py", line 2529, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\workspace\_GIFlaskApp\_parkmatching\env37\lib\site-packages\flask\app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\workspace\_GIFlaskApp\_parkmatching\env37\lib\site-packages\flask\app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\workspace\_GIFlaskApp\_parkmatching\env37\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "c:\workspace\_GIFlaskApp\_parkmatching\env37\lib\site-packages\flask_login\utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+  File "c:\workspace\_GIFlaskApp\_parkmatching\app.py", line 646, in adminDetailsMonth
+    [owner]=[user for user in users if user[data['owner_id']]]
+  File "c:\workspace\_GIFlaskApp\_parkmatching\app.py", line 646, in <listcomp>
+    [owner]=[user for user in users if user[data['owner_id']]]
+TypeError: 'User' object is not subscriptable
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:26:34] "[35m[1mGET /adminDetailsMonth HTTP/1.1[0m" 500 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:29:14] "GET / HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:29:14] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:29:14] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:29:14] "GET / HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:29:14] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:29:14] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:29:17] "GET /loginAdmin HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:29:17] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:29:17] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:29:18] "[32mPOST /loginAdmin HTTP/1.1[0m" 302 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:29:18] "GET /adminTop HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:29:18] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:29:18] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:47:46] "GET / HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:47:46] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:47:46] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:47:47] "GET /loginAdmin HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:47:47] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:47:47] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:47:48] "[32mPOST /loginAdmin HTTP/1.1[0m" 302 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:47:48] "GET /adminTop HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:47:48] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:47:48] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+ERROR:app:Exception on /adminDetailsMonth [GET]
+Traceback (most recent call last):
+  File "c:\workspace\_GIFlaskApp\_parkmatching\env37\lib\site-packages\flask\app.py", line 2529, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\workspace\_GIFlaskApp\_parkmatching\env37\lib\site-packages\flask\app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\workspace\_GIFlaskApp\_parkmatching\env37\lib\site-packages\flask\app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\workspace\_GIFlaskApp\_parkmatching\env37\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "c:\workspace\_GIFlaskApp\_parkmatching\env37\lib\site-packages\flask_login\utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+  File "c:\workspace\_GIFlaskApp\_parkmatching\app.py", line 648, in adminDetailsMonth
+    owner = User.query.filter_by(id=data['owner_id']).first().toDict()
+KeyError: 'owner_id'
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:47:54] "[35m[1mGET /adminDetailsMonth HTTP/1.1[0m" 500 -
+INFO:app:before request
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:53:34] "[31m[1mGET /adminDetailsMonth HTTP/1.1[0m" 401 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:53:36] "GET / HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:53:36] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:53:36] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:53:37] "GET /loginAdmin HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:53:37] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:53:37] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:53:38] "[32mPOST /loginAdmin HTTP/1.1[0m" 302 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:53:38] "GET /adminTop HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:53:38] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:53:38] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:55:48] "GET /adminDetailsMonth HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:55:48] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:55:48] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:56:02] "GET /adminTop HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:56:02] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:56:02] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:56:03] "GET /login HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:56:03] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:56:03] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:56:15] "GET /loginAdmin HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:56:15] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:56:15] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:56:16] "[32mPOST /loginAdmin HTTP/1.1[0m" 302 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:56:16] "GET /adminTop HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:56:16] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:56:16] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:56:17] "GET /adminDetailsMonth HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:56:17] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:56:17] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:56:23] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:56:23] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:57:14] "GET /adminDetailsMonth HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:57:14] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:57:14] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:57:18] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:57:18] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:57:25] "GET /adminDetailsMonth HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:57:25] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:57:25] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:59:10] "GET / HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:59:10] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:59:10] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:59:11] "GET /loginAdmin HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:59:11] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:59:11] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:59:12] "[32mPOST /loginAdmin HTTP/1.1[0m" 302 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:59:12] "GET /adminTop HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:59:12] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 20:59:12] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 21:01:40] "GET / HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 21:01:40] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 21:01:40] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 21:01:41] "GET /loginAdmin HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 21:01:42] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 21:01:42] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 21:01:42] "[32mPOST /loginAdmin HTTP/1.1[0m" 302 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 21:01:42] "GET /adminTop HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 21:01:42] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 21:01:42] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 21:04:30] "GET /adminDetailsMonth HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 21:04:32] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 21:04:34] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 21:06:49] "POST /adminDetailsMonth HTTP/1.1" 200 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 21:14:21] "GET / HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 21:14:21] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 21:14:21] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 21:14:23] "GET /loginAdmin HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 21:14:23] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 21:14:23] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 21:14:24] "[32mPOST /loginAdmin HTTP/1.1[0m" 302 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 21:14:24] "GET /adminTop HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 21:14:24] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 21:14:24] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 21:14:24] "GET /adminDetailsMonth HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 21:14:25] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 21:14:25] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 21:14:27] "POST /adminDetailsMonth HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 21:15:07] "GET /adminTop HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 21:15:07] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 21:15:07] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 21:15:10] "POST /adminTop HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 21:15:10] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 21:15:10] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
