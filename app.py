@@ -625,6 +625,11 @@ def adminDetailsMonth():
             reserve['use_end'] = lastMonth_end
         data = {}
         data.update(user)
+        # 重複するキーにサフィックスを与える（parkingのaddress,postalcode,telに'_P'を付与）
+        parking['address1_P'] = parking.pop('address1')
+        parking['address2_P'] = parking.pop('address2')
+        parking['postal_code_P'] = parking.pop('postal_code')
+        parking['tel_P'] = parking.pop('tel')
         data.update(parking)
         data.update(reserve)
         data.update({'use_days':(reserve['use_end']-reserve['use_start']).days + 1}) # 利用日数の算出
