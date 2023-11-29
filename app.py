@@ -161,7 +161,7 @@ class Reserve(db.Model):
 def backup_database():
     timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
     backup_filename = f"backup_{timestamp}.sqlite"
-    backup_path = os.path.join('buckup', backup_filename)
+    backup_path = os.path.join('backup', backup_filename)
 
     # データベースファイルをバックアップ
     pathDB = 'instance/user.db'
