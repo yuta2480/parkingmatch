@@ -637,21 +637,21 @@ def adminDetailsMonth():
         data.update(user)
 
         # 重複するキーにサフィックスを与える（parkingのaddress,postalcode,telに'_P'を付与）
-        data['title'] = parking.pop('title')
-        data['address1_Park'] = parking.pop('address1')
-        data['address2_Park'] = parking.pop('address2')
-        data['postal_code_Park'] = parking.pop('postal_code')
-        data['tel_Park'] = parking.pop('tel')
+        data['title'] = parking['title']
+        data['address1_Park'] = parking['address1']
+        data['address2_Park'] = parking['address2']
+        data['postal_code_Park'] = parking['postal_code']
+        data['tel_Park'] = parking['tel']
 
         # 重複するキーにサフィックスを与える（ownerのaddress,postalcode,tel,first_name, last_nameに'_owner'を付与）
         owner = User.query.filter_by(id=parking['owner_id']).first().toDict()
-        data['owner_id'] = owner.pop('id')
-        data['first_name_owner'] = owner.pop('first_name')
-        data['last_name_owner'] = owner.pop('last_name')
-        data['postal_code_owner'] = owner.pop('postal_code')
-        data['address1_owner'] = owner.pop('address1')
-        data['address2_owner'] = owner.pop('address2')
-        data['tel_owner'] = owner.pop('tel')
+        data['owner_id'] = owner['id']
+        data['first_name_owner'] = owner['first_name']
+        data['last_name_owner'] = owner['last_name']
+        data['postal_code_owner'] = owner['postal_code']
+        data['address1_owner'] = owner['address1']
+        data['address2_owner'] = owner['address2']
+        data['tel_owner'] = owner['tel']
 
         # 利用日数を設定
         data.update({'use_days':(reserve['use_end']-reserve['use_start']).days + 1}) # 利用日数の算出
@@ -680,7 +680,7 @@ def adminDetailsMonth():
             df.to_excel(filename, index=False, engine='openpyxl')  
             return Response(open(filename, 'rb'), mimetype="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")  
         else:
-            pass            
+            return render_template('adminDetailsMonth.html', reservelist=reservelist, lastMonth_start=lastMonth_start, lastMonth_end=lastMonth_end)
 
 
 # 管理者コンソール 利用・予約状況の全履歴の表示

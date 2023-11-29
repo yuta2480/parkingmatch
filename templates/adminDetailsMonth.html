@@ -58,9 +58,11 @@
             </form>
 
             <nav class='buttonMenu'>
-                <form method="POST" action="/adminDetailsMonth">
-                    <p><button type="submit" input class='common_button_admin_submit common_fat' style='width : 42%;'>ダウンロード</button></p>
-                </form>
+                {%if reservelist%}
+                    <form method="POST" action="/adminDetailsMonth">
+                        <p><button type="submit" input class='common_button_admin_submit common_fat' style='width : 42%;'>ダウンロード</button></p>
+                    </form>
+                {%endif%}
                 <form method="GET" action="/adminTop">
                     <p><button type="submit" input class='common_cancel common_fat' style='width : 42%;'>管理者メニューにもどる</button></p>
                 </form>
