@@ -1,8 +1,10 @@
 let UI_parkingReg = function() {
 
     this.systemButtonIDs = {
-        postalcode : 'js_convertButton_postalcode',
-        reverse: 'js_convertButton_leaflet'};
+        // postalcode : 'js_convertButton_postalcode',
+        normal: 'js_convertButton_address'
+        // reverse: 'js_convertButton_leaflet'
+    };
 
     this.defaultStatusSetup();
     this.eventSetup();
@@ -11,10 +13,11 @@ let UI_parkingReg = function() {
 UI_parkingReg.prototype = {
 
     defaultStatusSetup: function() {
-        const values = Object.values(this.systemButtonIDs);
+        /*const values = Object.values(this.systemButtonIDs);
         for (let idName of values) {
             document.getElementById(idName).disabled = true;
-        }
+        }*/
+        this.formDisabledChange_autoControl();
 
     },
 
@@ -23,6 +26,12 @@ UI_parkingReg.prototype = {
         // 各フォームへのイベント付与
         let _dom_postalcode = document.getElementById('input_postalCode');   // 郵便暗号の内容が変わったタイミング
         _dom_postalcode.addEventListener('change', this.changePostalCode);
+
+        let _dom_address1 = document.getElementById('input_address1');    // address1が変わったタイミング
+        _dom_address1.addEventListener('change', this.changeAddress);
+
+        let _dom_address2 = document.getElementById('input_address2');    // address2が変わったタイミング
+        _dom_address2.addEventListener('change', this.changeAddress);
 
         // ボタン類へのイベント付与
         for (let prop in this.systemButtonIDs) {
@@ -42,13 +51,21 @@ UI_parkingReg.prototype = {
         }
 
         // ナビゲーションメッセージを非表示に
-        this.navigateMessageChange('allStop');
+        // this.navigateMessageChange('allStop');
     },
 
     formDisabledChange_autoControl: function() {
         const status = this.collectStatus();
 
-        let stat = (status.postalcode === undefined) ? true: false;
+        // address1とaddress2がともに有効な値（判定がfalse）のときのみ、ジオコーディング用のボタンを押せるようにする。
+        let stat1 = (status.address1 === undefined || status.address1 === '' || status.address1 === '{{parking.address1}}') ? true : false;
+        let stat2 = (status.address2 === undefined || status.address2 === '' || status.address2 === '{{parking.address2}}') ? true : false;
+        let stat = (!stat1 && !stat2) ? false : true;
+
+        this.formDisabledChange(this.systemButtonIDs.normal, stat);
+
+        /* 2023/12/15 「地図にピンを打つ⇒住所に変換」の実装を解除する。それに伴いコメントアウト
+        let stat = (status.postalcode === undefined || status.postalcode === '{{parking.postal_code}}') ? true: false;
         this.formDisabledChange(this.systemButtonIDs.postalcode, stat);
 
         stat = (map.marker === undefined) ? true: false;
@@ -56,7 +73,9 @@ UI_parkingReg.prototype = {
 
         // 住所類のフォームのdisabledを解除する
         this.formDisabledCheck(false);
+        */
     },
+    /* 2023/12/15 「地図にピンを打つ⇒住所に変換」の実装を解除する。それに伴いコメントアウト
     formDisabledCheck: function(stat) {
         targetIDs = ['input_address1'];
 
@@ -66,8 +85,8 @@ UI_parkingReg.prototype = {
             color = (stat) ? 'rgb(215, 215, 215)': 'transparent';
             document.getElementById(ID).style.backgroundColor = color;
         }
-
     },
+    */
 
     /* ----- DOM操作・入力補完 ----- */
     formAdjust_postalcode: function() {
@@ -116,6 +135,7 @@ UI_parkingReg.prototype = {
 
 
     /* ----- DOM操作・ナビゲーションの調整 ----- */
+    /* 2023/12/15 「地図にピンを打つ⇒住所に変換」の実装を解除する。それに伴いコメントアウト
     navigateMessageChange: function(stat) {
         switch(stat) {
             case 'putMarker':   // leafletをクリックしてマーカーを設置した際に通過（呼び出し元：leafletObject.js）
@@ -128,11 +148,11 @@ UI_parkingReg.prototype = {
                 targets = ['message1', 'message2'];
                 for (let target of targets) {
                     dom = document.getElementById(target);
-                    if (dom.style.animationIterationCount == 'infinite') dom.style.animationIterationCount = 1;
+                    // if (dom.style.animationIterationCount == 'infinite') dom.style.animationIterationCount = 1;
+                    if (dom.style.animationIterationCount == 'infinite' || dom.style.animationIterationCount == '') dom.style.animationIterationCount = 1;
                 }
         }
-
-    },
+    }, */
 
 
     /* ----- SYSTEM ----- ----- ----- --- ----- ----- ----- */
@@ -154,29 +174,42 @@ UI_parkingReg.prototype = {
 
     geocodingOut: function(job, source, errCode) {
 
-        // 1. エラーチェック
+        const showAlert_notFound = function() {
+            alert('該当する情報が見つかりませんでした。');
+        };
+
+        // 1. 国土地理院API用のエラー対策
+        if (source.responseText === '[]') { showAlert_notFound(); return; }
+
         if (source !== 'ERR' && errCode === undefined) {
 
             // 2. APIからもらった結果の整理（デコード）
             let D = new decorder(job, source);
 
             // 3. デコード結果の反映
-            if (D.package === undefined) alert('該当する情報が見つかりませんでした。');
+            if (D.package === undefined) showAlert_notFound();
             else {
                 // データの反映
-                (job === 'reverse') ? this.parent.formComplete_address(D): this.parent.formComplete_address_postalcode(D);
+                // (job === 'reverse') ? this.parent.formComplete_address(D): this.parent.formComplete_address_postalcode(D);
+                switch(job) {
+                    case 'normal':      map.addMarker(D.package); break;
+                    case 'reverse':     this.parent.formComplete_address(D); break;
+                    case 'postalcode':  this.parent.formComplete_address_postalcode(D); break;
+                }
+
             }
         }  
 
         // 4. フォームの調整
         ui.formDisabledChange_autoControl();
-        // ui.geoButtonsDisabledChange(job, 'ACTIVATE');
+        // console.log('geocodingOut : job >> ', job)
+        ui.geoButtonsDisabledChange(job, 'ACTIVATE');
     },
 
     geocoding: function() {
         // console.log('geocoding', this);
         let param = {
-            package : (this.value === 'reverse') ? map.getMarkerCoordinate() : this.parent.geocoding_getPackage(this.job),
+            package : (this.value === 'reverse') ? map.getMarkerCoordinate() : this.parent.collectStatus(),
             job : this.value,
             callback : this.parent.geocodingOut,
             parent : this.parent
@@ -184,23 +217,21 @@ UI_parkingReg.prototype = {
 
         geo.jobOrder(param);
     },
-    geocoding_getPackage: function(job) {
-        let package = this.collectStatus();
-
-        if (job === 'postalcode') {
-            package.address1 = undefined;
-            package.address2 = undefined;
-        }
-
-        return package;
-    },
-
-
+    
 
     /* ----- Event ----- ----- ----- --- ----- ----- ----- */
     changePostalCode: function() {
         const flag = ui.formAdjust_postalcode();
-        ui.formDisabledChange('js_convertButton_postalcode', flag);
+        // ui.formDisabledChange('js_convertButton_postalcode', flag);        // 2023/12/15 「地図にピンを打つ⇒住所に変換」の実装を解除する。それに伴いコメントアウト
+    }, 
+
+
+    changeAddress: function() {
+        ui.formDisabledChange_autoControl();
+
+        /*stat = ui.collectStatus();
+        flag = (stat.address1 == '') ? true : false;
+        ui.formDisabledChange('js_convertButton_address', flag);*/
     }, 
 
 };

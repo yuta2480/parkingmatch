@@ -1,8 +1,8 @@
 let decorder = function(job, source) {
     this.job = job;
 
-    // console.log('> NORMAL ', source);
-    this.source = (job === 'postalcode') ? JSON.parse(source.responseText): this.XMLparse(source);
+    //this.source = (job === 'postalcode') ? JSON.parse(source.responseText): this.XMLparse(source);
+    this.source = (job === 'reverse') ? this.XMLparse(source) : JSON.parse(source.responseText);
 
     // console.log(this.source);
     this.package = (this.source === undefined) ? undefined : this.setPackage();
@@ -18,6 +18,7 @@ decorder.prototype = {
         let common_xmlData = parser.parseFromString(_source.responseXML.documentElement.outerHTML, 'text/xml');
 
         // 2. 1.の内容から個別対応を行う
+        /*
         let xmlData = undefined;
         switch(this.job) {
             case 'normal':      xmlData = this.XMLparse_normal(common_xmlData); break;
@@ -25,6 +26,8 @@ decorder.prototype = {
         }
 
         return xmlData;
+        */
+        return this.XMLparse_reverse(common_xmlData)
     },
     XMLparse_normal: function(xmlData) {
         let places = xmlData.getElementsByClassName('place');
@@ -58,9 +61,15 @@ decorder.prototype = {
 
         switch(this.job) {
             case 'normal':      // ----- ----- ----- --- ----- ----- ----- --- ----- ----- ----- --- ----- ----- ----- 
-                package = {
+                /*package = {
                     lat : parseFloat(this.source.lat.nodeValue),
                     lng : parseFloat(this.source.lon.nodeValue)
+                };*/
+
+                let coordinates = this.source[0].geometry.coordinates;
+                package = {
+                    lat : coordinates[1],
+                    lng : coordinates[0]
                 };
                 break;
             case 'postalcode':  // ----- ----- ----- --- ----- ----- ----- --- ----- ----- ----- --- ----- ----- ----- 

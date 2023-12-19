@@ -38,18 +38,19 @@
 
                         <div style='grid-column: 2; grid-row: 1'>
                             <input class='withSelectButton postalCodeText' id='input_postalCode' type='tel' name='postal_code' pattern='\d{3}-?\d{4}' inputmode='numeric' required value="{{parking.postal_code}}" />
-                            <input class='common_selectButton' type='button' id='js_convertButton_postalcode' value='住所を入力' />
-                            <!--<input class='common_selectButton' type='button' id='js_convertButton_address' value='地図に反映' />-->
+                            <!-- <input class='common_selectButton' type='button' id='js_convertButton_postalcode' value='住所を入力' /> --> 
+                            <input class='common_selectButton' type='button' id='js_convertButton_address' value='地図に反映' />
                         </div>
-                        <input style='grid-column: 2; grid-row: 2; background-color: rgb(215, 215, 215);' id='input_address1' type='text' name='address1' disabled required value="{{parking.address1}}" />
+                        <input style='grid-column: 2; grid-row: 2;' id='input_address1' type='text' name='address1' required value="{{parking.address1}}" />
+                        <!-- <input style='grid-column: 2; grid-row: 2; background-color: rgb(215, 215, 215);' id='input_address1' type='text' name='address1' disabled required value="{{parking.address1}}" /> -->
                         <input style='grid-column: 2; grid-row: 3' id='input_address2' type='text' name='address2' required value="{{parking.address2}}" />
                         <input style='grid-column: 2; grid-row: 4' id='label_input4_telNumber' type='tel' name='tel' pattern='\d{2,4}-?\d{2,4}-?\d{3,4}' required value="{{parking.tel}}" /> 
 
                         <div class='secretItems'>
-                            ※デバッグ途中の為、見える位置で失礼します。
                         <label>緯度<input id='secretParam_lat' type='text' name='lat' required readonly tabindex=-1 value="{{parking.lat}}" /></label>
                         <label>経度<input id='secretParam_lon' type='text' name='lon' required readonly tabindex=-1 value="{{parking.lon}}" /></label>
                         </div>
+
 
                         <!-- 2. 貸出タイプ ----- ----- ----- -->
                         <div style='visibility: hidden;'>
@@ -169,6 +170,7 @@
                     </section> #}
 
                     <!-- 6. 地図（ツールとLeaflet） ----- ----- ----- -->
+                    <!-- 23/12/15 2023/12/15 「地図にピンを打つ⇒住所に変換」の実装を解除する。それに伴いコメントアウト
                     <section class='grid_mapTool'>
                         <input class='common_selectButton' type='button' id='js_convertButton_leaflet' value='ピンの位置を住所に反映' />
                         <p id='message2'>このボタンをクリックしてください</p>
@@ -178,6 +180,12 @@
                         <p id='message1'>まずは駐車場の位置をクリックしてください</p>
 
                         <div id='leafletObj' style='width : 460px; height : 360px'></div>
+                        <p style='font-size : 9px'>【備考】住所からの座標取得に地理院地図のAPIを一部利用しています</p>
+                    </section>
+                    -->
+                    <section class='grid_mapView'>
+                        <div id='leafletObj' style='width : 460px; height : 500px'></div>
+                        <p style='font-size : 9px'>【備考】住所からの座標取得に地理院地図のAPIを一部利用しています</p>
                     </section>
        
                     <!-- 7. 実際の写真イメージ ----- ----- ----- -->           

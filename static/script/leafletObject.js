@@ -138,8 +138,9 @@ LeafletObject.prototype = {
 
                 if (map.marker === undefined) {
                     map.addMarker({lat : e.latlng.lat, lng : e.latlng.lng});
-                    ui.formDisabledChange('js_convertButton_leaflet', false);
-                    ui.navigateMessageChange('putMarker');
+                    // 2023/12/15 「地図にピンを打つ⇒住所に変換」の実装を解除する。それに伴いコメントアウト
+                    // ui.formDisabledChange('js_convertButton_leaflet', false);
+                    // ui.navigateMessageChange('putMarker');
                 }
                 
                 break;
@@ -155,6 +156,7 @@ LeafletObject.prototype = {
                 break;
             case 'parkingRegistration':
                 if (map.marker !== undefined) map.marker.setLatLng(e.latlng);
+                map.latlngUpdate();
                 break;
         }
 

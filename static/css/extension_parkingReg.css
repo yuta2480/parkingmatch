@@ -44,7 +44,7 @@ label.paragraph {
     top : 0;
     left : 0;
     /* 表示、非表示を変えたい場合は以下を操作する */
-    /*display : block; */
+    /* display : block; */
     display : none;
 }
 
@@ -84,6 +84,7 @@ label.paragraph {
 }
 
 /* navigation ----- ----- ----- */
+/* 2023/12/15 「地図にピンを打つ⇒住所に変換」の実装を解除する。それに伴いコメントアウト
 #message1 {
     visibility : hidden;
     animation-name : navigateMessage;
@@ -121,20 +122,24 @@ label.paragraph {
         width : 90%;
         opacity : 0;
     }
-}
+}*/
 
 
 
 /* overwrite ----- ----- ----- */
 .inner {
     grid-template-areas:
-    /*"form mapTool"
+    /* "form mapTool"
     "form mapView"
-    "imageForm imageView"*/
+    "imageForm imageView" */
 
-    /* 20231011 配置入れ替え */
-    "mapTool form"
+    /* 2023/10/11 ～ 12/15 配置入れ替え 地図を左側、入力を右側 */
+    /* "mapTool form"
     "mapView form"
+    "imageForm imageView" */
+
+    /* 2023/12/15 配置再入れ替え　入力を左側、地図を右側（mapToolは不要に） */
+    "form mapView"
     "imageForm imageView"
     ;
 

@@ -132,21 +132,6 @@ input.common_checkBox {
     margin : 0 1.4rem;
 }
 
-.common_button_admin_submit {
-    background-color : rgb(0, 0, 0);
-
-    text-indent : 0;
-    font-size : 2rem;
-    color : white;
-    height : 4rem;
-    border-radius : 2rem;
-
-    /*height : 5.8rem;
-    border-radius : 2.9rem;*/
-
-    margin : 0 1.4rem;
-}
-
 .common_fat { /* 太めのボタン用 */
     height : 5.8rem;
     border-radius: 2.9rem;

@@ -8,7 +8,9 @@ let geocorder = function() {
 
     this.apiURL = {
         postalcode : 'https://zipcloud.ibsnet.co.jp/api/search?zipcode=',
-        normal : 'https://nominatim.openstreetmap.org/search/jp/', 
+        normal : 'https://msearch.gsi.go.jp/address-search/AddressSearch?q=',
+        //normal : 'https://nominatim.openstreetmap.org/search/jp/', 
+        //normal : 'https://.openstreetmap.org/search?q=jp, ',
         reverse : 'https://nominatim.openstreetmap.org/reverse'};
 
 
@@ -67,7 +69,22 @@ geocorder.prototype = {
     },
     getGeoQuery_normal: function() {
 
-        // console.log('>> QUERY_NORMAL', this.param.package);
+        const createQueryNormal = function(P) {
+            let result = '', flag = false;
+
+            let pref = (P.address1 === undefined || P.address1 === '{{parking.address1}}') ? '' : P.address1,
+            address = (P.address2 === undefined || P.address2 === '{{parking.address2}}') ? '' : P.address2;
+            return pref+address;
+        };
+
+        let query = '';
+        query += (this.param.job === 'normal') ? ''+createQueryNormal(this.param.package): '+'+this.param.package.postalcode;
+        return query
+    },
+    /* OSM Nominatim用 ----- ----- ----- ----- 
+    getGeoQuery_normal: function() {
+
+        console.log('>> QUERY_NORMAL', this.param.package);
 
         const createQueryNormal = function(P) {
             let result = '', flag = false;
@@ -94,11 +111,13 @@ geocorder.prototype = {
         query += (this.param.job === 'normal') ? ''+createQueryNormal(this.param.package): '+'+this.param.package.postalcode;
 
         let attribute = 'format=xml&polygon=1&addressdetails=1';
-        return query+'?'+attribute;
+        // return query+'?'+attribute;
+        return query + '&' + attribute;
         
         // 参考
         // http://nominatim.openstreetmap.org/search/gb/birmingham/pilkington%20avenue/135?format=xml&polygon=1&addressdetails=1
     },
+    */
     getGeoQuery_reverse: function() {
         let query = '?format=xml'
         + '&lat='+this.param.package.lat
@@ -111,8 +130,5 @@ geocorder.prototype = {
     getGeoQuery_zipcloud: function() {
         return this.param.package.postalcode + '&limit=100';
     }
-
-
-
 
 };
