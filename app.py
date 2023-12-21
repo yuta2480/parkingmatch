@@ -104,6 +104,7 @@ class Parking(db.Model):
     def toDict(self):
         return {'id' : self.id,
                 'title' : self.title,
+                'postal_code' : self.postal_code,
                 'address1' : self.address1,
                 'address2' : self.address2,
                 'tel' : self.tel,
@@ -488,7 +489,7 @@ def parkingRegistration():
             return render_template('parkingRegistration.html', parking=parking)
         # 駐車場の登録がない場合、
         else:
-            parking = Parking(max_day=31, price_day=0, etc='', tel=user.tel)
+            parking = Parking(max_day=31, price_day=0, etc='', tel=user.tel, postal_code='', address1='', address2='')
             return render_template('parkingRegistration.html', parking=parking)
 
 

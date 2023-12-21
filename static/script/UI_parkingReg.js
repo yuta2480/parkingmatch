@@ -192,7 +192,7 @@ UI_parkingReg.prototype = {
                 // データの反映
                 // (job === 'reverse') ? this.parent.formComplete_address(D): this.parent.formComplete_address_postalcode(D);
                 switch(job) {
-                    case 'normal':      map.addMarker(D.package); break;
+                    case 'normal':      map.addMarker(D.package); map.forcePanAndZoom(D.package, 17); break;
                     case 'reverse':     this.parent.formComplete_address(D); break;
                     case 'postalcode':  this.parent.formComplete_address_postalcode(D); break;
                 }
