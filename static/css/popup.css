@@ -9,8 +9,15 @@
 
 .popup table {
     border-collapse: collapse;
+    margin-bottom : 0.4em;
 }
 .popup td {
     padding : 2px;
     border-bottom : solid 1px rgb(75, 75, 75);
+}
+.popup td.etc { padding : 0px; }
+.popup td.etc div { 
+    margin : 0; padding : 2px;
+    max-height : 120px;
+    overflow-y : auto;
 }

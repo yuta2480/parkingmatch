@@ -160,7 +160,7 @@ UI_mainForm.prototype = {
     /* ----- DOM操作・マーカーポップアップ部分の作成 ----- */
     generateMarkerPopup: function(_obj) {
 
-        // console.log('_obj :: ', _obj);
+        //console.log('_obj :: ', _obj);
         getInoutDoor =  function(source) { return (source === '0') ? '屋外' : '屋内' };
         getMustCall =   function(source) { return (source === '0') ? '不要' : '必要' };
         getTypeNum =    function(source) { return (source === '0') ? '3ナンバー' : '5ナンバー' };
@@ -174,6 +174,16 @@ UI_mainForm.prototype = {
         };
         getReservable = function(stat) {
             return (stat) ? {disable : '', value : '予約する'} : {disable : 'disabled', value : 'ご希望の期間は既に予約あり'}
+        };
+        getEtc =        function(source) {
+            // .etc要素が無い、または.etc要素が空欄、未定義の場合はfalseにする
+            let stat = (source.hasOwnProperty('etc')) ? ((source.etc === '' || source.etc === undefined) ? false : true) : false;
+            if (!stat) return '';
+
+            const outputLength = 500;
+            const _extension = (source.etc.length > outputLength) ? '…' : '';
+            const _str = source.etc.substring(0, outputLength);
+            return '<tr><td colspan="2" class="etc"><div>備考：<br/>' + _str + _extension + '</div></td></tr>';
         };
 
         // 予約情報による分岐
@@ -191,6 +201,7 @@ UI_mainForm.prototype = {
             '<tr><td>入出庫時の連絡 </td><td>' + getMustCall(_obj.mustcall) + '</td></tr>'+
             '<tr><td>駐車可能ナンバー </td><td>' + getTypeNum(_obj.usableTypeNum) + '</td></tr>'+
             '<tr><td>駐車可能な車高 </td><td>' + getTypeSize(_obj.usableSize) + '</td></tr>'+
+            getEtc(_obj)+
             '</table>'+
             // '<button onClick="popup_selectButtonClick(\''+_obj.name+'\')">func 1</button>'+
             '<button id="parkingsMarker_'+_obj.id+'" onClick="ui.popup_reserveButtonClick(\''+_obj.id+'\')" '+reservableStat.disable+'>'+reservableStat.value+'</button>'+
