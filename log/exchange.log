@@ -552,3 +552,630 @@ INFO:app:before request
 INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 21:15:10] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
 INFO:app:before request
 INFO:werkzeug:127.0.0.1 - - [28/Nov/2023 21:15:10] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:06:11] "GET / HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:06:12] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:06:12] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:06:12] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:06:14] "[32mPOST /login HTTP/1.1[0m" 302 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:06:14] "GET /mainForm HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:06:15] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:06:15] "[36mGET /static/css/leafletOverWrite.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:06:15] "GET /static/css/popup.css HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:06:15] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:06:15] "[36mGET /static/css/extension_mainForm.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:06:15] "[36mGET /static/script/common.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:06:15] "[36mGET /static/script/boundsObject.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:06:15] "[36mGET /static/script/SYS_reserveData.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:06:15] "[36mGET /static/script/SYS_parkingInfo.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:06:15] "GET /static/script/UI_mainForm.js HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:06:15] "[36mGET /static/script/main.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:06:15] "[36mGET /static/script/leafletObject.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:06:20] "GET /settingChange HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:06:20] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:06:20] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:06:20] "[36mGET /static/script/passwordCheck.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:06:23] "GET /mainForm HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:06:23] "[36mGET /static/css/popup.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:06:23] "[36mGET /static/css/leafletOverWrite.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:06:23] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:06:23] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:06:23] "[36mGET /static/css/extension_mainForm.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:06:23] "[36mGET /static/script/common.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:06:23] "[36mGET /static/script/boundsObject.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:06:23] "[36mGET /static/script/SYS_reserveData.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:06:23] "[36mGET /static/script/SYS_parkingInfo.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:06:23] "[36mGET /static/script/UI_mainForm.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:06:23] "[36mGET /static/script/leafletObject.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:06:23] "[36mGET /static/script/main.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:06:35] "[32mGET /logout HTTP/1.1[0m" 302 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:06:35] "GET /login HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:06:35] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:06:35] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:06:49] "[32mPOST /login HTTP/1.1[0m" 302 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:06:49] "GET /mainForm HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:06:49] "[36mGET /static/css/popup.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:06:49] "[36mGET /static/css/leafletOverWrite.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:06:49] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:06:49] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:06:49] "[36mGET /static/css/extension_mainForm.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:06:49] "[36mGET /static/script/common.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:06:49] "[36mGET /static/script/boundsObject.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:06:49] "[36mGET /static/script/SYS_reserveData.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:06:49] "[36mGET /static/script/SYS_parkingInfo.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:06:49] "[36mGET /static/script/UI_mainForm.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:06:49] "[36mGET /static/script/leafletObject.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:06:49] "[36mGET /static/script/main.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:06:58] "GET /settingChange HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:06:58] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:06:58] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:06:58] "[36mGET /static/script/passwordCheck.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:07:01] "GET /parkingRegistration HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:07:01] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:07:01] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:07:01] "[36mGET /static/css/extension_parkingReg.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:07:01] "[36mGET /static/script/decorder.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:07:01] "[36mGET /static/script/UI_parkingReg.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:07:01] "[36mGET /static/script/geocorder.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:07:01] "[36mGET /static/script/leafletObject.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:07:01] "[36mGET /static/script/main.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:app:parkingCreate to {'id': None, 'title': 'Ç∞ÇÒÇ´ì@íìé‘èÍ', 'postal_code': '1830042', 'address1': 'çÈã åßì˙çÇés', 'address2': 'ïêë†ë‰1-23-5', 'tel': '0704872020', 'inoutdoor': '0', 'mustcall': '0', 'usableTypeNum': '0', 'usableSize': '0', 'max_day': 31, 'min_day': None, 'price_day': 0, 'etc': 'ÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉg', 'lon': 139.30217635625016, 'lat': 35.87999770675385}
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:07:55] "POST /parkingRegistration HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:07:55] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:07:55] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:07:57] "GET /mainForm HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:07:57] "[36mGET /static/css/popup.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:07:57] "[36mGET /static/css/leafletOverWrite.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:07:57] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:07:57] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:07:57] "[36mGET /static/css/extension_mainForm.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:07:57] "[36mGET /static/script/common.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:07:57] "[36mGET /static/script/boundsObject.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:07:57] "[36mGET /static/script/SYS_reserveData.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:07:57] "[36mGET /static/script/UI_mainForm.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:07:57] "[36mGET /static/script/SYS_parkingInfo.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:07:57] "[36mGET /static/script/main.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:07:57] "[36mGET /static/script/leafletObject.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:08:11] "GET /settingChange HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:08:11] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:08:11] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:08:11] "[36mGET /static/script/passwordCheck.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:08:13] "GET /parkingRegistration HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:08:13] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:08:13] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:08:13] "[36mGET /static/css/extension_parkingReg.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:08:13] "[36mGET /static/script/geocorder.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:08:13] "[36mGET /static/script/UI_parkingReg.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:08:13] "[36mGET /static/script/leafletObject.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:08:13] "[36mGET /static/script/main.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:08:13] "[36mGET /static/script/decorder.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:app:parkingChange from {'id': 1, 'title': 'Ç∞ÇÒÇ´ì@íìé‘èÍ', 'postal_code': '1830042', 'address1': 'çÈã åßì˙çÇés', 'address2': 'ïêë†ë‰1-23-5', 'tel': '0704872020', 'inoutdoor': '0', 'mustcall': '0', 'usableTypeNum': '0', 'usableSize': '0', 'max_day': 31, 'min_day': None, 'price_day': 0, 'etc': 'ÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉg', 'lon': 139.30217635625016, 'lat': 35.87999770675385}
+INFO:app:parkingChange to   {'id': 1, 'title': 'Ç∞ÇÒÇ´ì@íìé‘èÍ', 'postal_code': '1830099', 'address1': 'çÈã åßì˙çÇés', 'address2': 'ïêë†ë‰1-23-5', 'tel': '0704872020', 'inoutdoor': '1', 'mustcall': '1', 'usableTypeNum': '1', 'usableSize': '2', 'max_day': 31, 'min_day': None, 'price_day': 0, 'etc': 'ÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉgÉeÉXÉg', 'lon': 139.30217635625016, 'lat': 35.87999770675385}
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:08:29] "POST /parkingRegistration HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:08:29] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:08:29] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:08:31] "GET /mainForm HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:08:31] "[36mGET /static/css/popup.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:08:31] "[36mGET /static/css/leafletOverWrite.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:08:31] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:08:31] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:08:31] "[36mGET /static/css/extension_mainForm.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:08:31] "[36mGET /static/script/common.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:08:31] "[36mGET /static/script/boundsObject.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:08:31] "[36mGET /static/script/SYS_reserveData.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:08:31] "[36mGET /static/script/SYS_parkingInfo.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:08:31] "[36mGET /static/script/UI_mainForm.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:08:31] "[36mGET /static/script/leafletObject.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [21/Dec/2023 13:08:31] "[36mGET /static/script/main.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [17/May/2024 12:50:49] "GET / HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [17/May/2024 12:50:49] "GET /static/css/centerBox.css HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [17/May/2024 12:50:49] "GET /static/css/common.css HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [17/May/2024 12:50:50] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [17/May/2024 12:50:51] "[32mPOST /login HTTP/1.1[0m" 302 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [17/May/2024 12:50:51] "GET /mainForm HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [17/May/2024 12:50:52] "GET /static/css/popup.css HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [17/May/2024 12:50:52] "GET /static/css/leafletOverWrite.css HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [17/May/2024 12:50:52] "GET /static/css/extension_mainForm.css HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [17/May/2024 12:50:52] "GET /static/script/common.js HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [17/May/2024 12:50:52] "GET /static/script/boundsObject.js HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [17/May/2024 12:50:52] "GET /static/script/SYS_reserveData.js HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [17/May/2024 12:50:52] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [17/May/2024 12:50:52] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [17/May/2024 12:50:52] "GET /static/script/SYS_parkingInfo.js HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [17/May/2024 12:50:52] "GET /static/script/UI_mainForm.js HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [17/May/2024 12:50:52] "GET /static/script/leafletObject.js HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [17/May/2024 12:50:52] "GET /static/script/main.js HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [17/May/2024 12:51:08] "GET /usageStats HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [17/May/2024 12:51:08] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [17/May/2024 12:51:08] "GET /static/css/extension_usageStats.css HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [17/May/2024 12:51:08] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [17/May/2024 12:51:09] "GET /mainForm HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [17/May/2024 12:51:09] "[36mGET /static/css/popup.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [17/May/2024 12:51:09] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [17/May/2024 12:51:09] "[36mGET /static/css/leafletOverWrite.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [17/May/2024 12:51:09] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [17/May/2024 12:51:09] "[36mGET /static/script/common.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [17/May/2024 12:51:09] "[36mGET /static/css/extension_mainForm.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [17/May/2024 12:51:09] "[36mGET /static/script/boundsObject.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [17/May/2024 12:51:09] "[36mGET /static/script/SYS_reserveData.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [17/May/2024 12:51:09] "[36mGET /static/script/SYS_parkingInfo.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [17/May/2024 12:51:09] "[36mGET /static/script/UI_mainForm.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [17/May/2024 12:51:09] "[36mGET /static/script/leafletObject.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [17/May/2024 12:51:09] "[36mGET /static/script/main.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [17/May/2024 12:51:12] "GET /settingChange HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [17/May/2024 12:51:12] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [17/May/2024 12:51:12] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [17/May/2024 12:51:12] "GET /static/script/passwordCheck.js HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [17/May/2024 12:51:14] "GET /parkingRegistration HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [17/May/2024 12:51:14] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [17/May/2024 12:51:14] "GET /static/css/extension_parkingReg.css HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [17/May/2024 12:51:14] "GET /static/script/decorder.js HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [17/May/2024 12:51:14] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [17/May/2024 12:51:14] "GET /static/script/geocorder.js HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [17/May/2024 12:51:14] "GET /static/script/UI_parkingReg.js HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [17/May/2024 12:51:14] "[36mGET /static/script/leafletObject.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [17/May/2024 12:51:14] "[36mGET /static/script/main.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:14:28] "GET / HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:14:28] "GET /static/css/centerBox.css HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:14:28] "GET /static/css/common.css HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:14:28] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:15:41] "GET / HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:15:41] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:15:41] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:15:41] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:20:16] "GET / HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:20:17] "GET /static/css/centerBox.css HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:20:17] "GET /static/css/common.css HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:20:17] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:22:04] "POST /login HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:22:04] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:22:04] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:22:26] "POST /login HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:22:26] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:22:26] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:26:09] "[32mPOST /login HTTP/1.1[0m" 302 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:26:10] "GET /mainForm HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:26:10] "GET /static/css/extension_mainForm.css HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:26:10] "GET /static/css/leafletOverWrite.css HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:26:10] "GET /static/css/centerBox.css HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:26:10] "GET /static/css/common.css HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:26:10] "GET /static/css/popup.css HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:26:10] "GET /static/script/boundsObject.js HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:26:10] "GET /static/script/common.js HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:26:10] "GET /static/script/SYS_reserveData.js HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:26:10] "GET /static/script/SYS_parkingInfo.js HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:26:10] "GET /static/script/main.js HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:26:10] "GET /static/script/leafletObject.js HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:26:10] "GET /static/script/UI_mainForm.js HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:27:11] "GET /usageStats HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:27:12] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:27:12] "GET /static/css/extension_usageStats.css HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:27:12] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:27:18] "GET /mainForm HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:27:18] "[36mGET /static/css/popup.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:27:18] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:27:18] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:27:18] "[36mGET /static/css/leafletOverWrite.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:27:18] "[36mGET /static/script/SYS_parkingInfo.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:27:18] "[36mGET /static/script/UI_mainForm.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:27:18] "[36mGET /static/script/SYS_reserveData.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:27:18] "[36mGET /static/script/boundsObject.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:27:18] "[36mGET /static/script/common.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:27:18] "[36mGET /static/css/extension_mainForm.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:27:18] "[36mGET /static/script/leafletObject.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:27:18] "[36mGET /static/script/main.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:27:23] "GET /settingChange HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:27:23] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:27:23] "GET /static/script/passwordCheck.js HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:27:23] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:27:29] "GET /mainForm HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:27:29] "[36mGET /static/css/popup.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:27:29] "[36mGET /static/css/extension_mainForm.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:27:29] "[36mGET /static/css/leafletOverWrite.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:27:29] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:27:29] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:27:29] "[36mGET /static/script/boundsObject.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:27:29] "[36mGET /static/script/leafletObject.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:27:29] "[36mGET /static/script/common.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:27:29] "[36mGET /static/script/SYS_reserveData.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:27:29] "[36mGET /static/script/SYS_parkingInfo.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:27:29] "[36mGET /static/script/UI_mainForm.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:27:29] "[36mGET /static/script/main.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:28:23] "GET /mainForm HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:28:24] "[36mGET /static/css/leafletOverWrite.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:28:24] "[36mGET /static/script/boundsObject.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:28:24] "[36mGET /static/script/common.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:28:24] "[36mGET /static/script/main.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:28:24] "[36mGET /static/script/leafletObject.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:28:24] "[36mGET /static/script/UI_mainForm.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:28:24] "[36mGET /static/css/popup.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:28:24] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:28:24] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:28:24] "[36mGET /static/script/SYS_parkingInfo.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:28:24] "[36mGET /static/script/SYS_reserveData.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:28:24] "[36mGET /static/css/extension_mainForm.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:53:00] "[31m[1mGET /mainForm HTTP/1.1[0m" 401 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:53:00] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:53:12] "GET / HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:53:13] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:53:13] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:53:17] "[32mPOST /login HTTP/1.1[0m" 302 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:53:17] "GET /mainForm HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:53:17] "[36mGET /static/css/popup.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:53:17] "[36mGET /static/script/boundsObject.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:53:17] "[36mGET /static/script/leafletObject.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:53:17] "[36mGET /static/css/extension_mainForm.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:53:17] "[36mGET /static/script/SYS_reserveData.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:53:17] "[36mGET /static/script/UI_mainForm.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:53:17] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:53:17] "[36mGET /static/script/main.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:53:17] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:53:17] "[36mGET /static/script/common.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:53:17] "[36mGET /static/script/SYS_parkingInfo.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:53:17] "[36mGET /static/css/leafletOverWrite.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:53:34] "GET / HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:53:35] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:53:35] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:53:35] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:53:37] "[32mPOST /login HTTP/1.1[0m" 302 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:53:37] "GET /mainForm HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:53:37] "GET /static/css/popup.css HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:53:37] "GET /static/css/leafletOverWrite.css HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:53:37] "GET /static/css/extension_mainForm.css HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:53:37] "GET /static/css/centerBox.css HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:53:37] "GET /static/css/common.css HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:53:37] "GET /static/script/common.js HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:53:38] "GET /static/script/boundsObject.js HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:53:38] "GET /static/script/SYS_reserveData.js HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:53:38] "GET /static/script/SYS_parkingInfo.js HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:53:38] "GET /static/script/UI_mainForm.js HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:53:38] "GET /static/script/leafletObject.js HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:53:38] "GET /static/script/main.js HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:54:25] "GET /settingChange HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:54:25] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:54:25] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:54:25] "[36mGET /static/script/passwordCheck.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:54:28] "GET /parkingRegistration HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:54:28] "GET /static/script/decorder.js HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:54:28] "GET /static/script/geocorder.js HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:54:28] "GET /static/css/extension_parkingReg.css HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:54:28] "GET /static/script/UI_parkingReg.js HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:54:28] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:54:28] "[36mGET /static/script/main.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:54:28] "[36mGET /static/script/leafletObject.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:54:28] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:app:parkingCreate to {'id': None, 'title': 'êºéRì@íìé‘èÍ', 'postal_code': '3501257', 'address1': 'çÈã åßì˙çÇés', 'address2': 'ïêë†ë‰2-2-2', 'tel': '08043682480', 'inoutdoor': '0', 'mustcall': '0', 'usableTypeNum': '1', 'usableSize': '2', 'max_day': 31, 'min_day': None, 'price_day': 0, 'etc': 'ì¡Ç…Ç»Çµ', 'lon': 139.302643, 'lat': 35.877228}
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:56:40] "POST /parkingRegistration HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:56:40] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:56:40] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:56:42] "GET /mainForm HTTP/1.1" 200 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:56:42] "[36mGET /static/css/popup.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:56:42] "[36mGET /static/css/leafletOverWrite.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:56:42] "[36mGET /static/script/leafletObject.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:56:42] "[36mGET /static/script/SYS_parkingInfo.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:56:42] "[36mGET /static/script/common.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:56:42] "[36mGET /static/script/main.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:56:42] "[36mGET /static/script/UI_mainForm.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:56:42] "[36mGET /static/script/SYS_reserveData.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:56:42] "[36mGET /static/css/common.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:56:42] "[36mGET /static/script/boundsObject.js HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:56:42] "[36mGET /static/css/centerBox.css HTTP/1.1[0m" 304 -
+INFO:app:before request
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2024 10:56:42] "[36mGET /static/css/extension_mainForm.css HTTP/1.1[0m" 304 -
